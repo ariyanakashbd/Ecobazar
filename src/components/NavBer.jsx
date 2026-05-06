@@ -1,108 +1,30 @@
 import React, { useRef, useState } from 'react'
 import Container from './layouts/Container';
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { Link } from 'react-router';
+import { FaBars } from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
 import { FiPhoneCall } from "react-icons/fi";
-import { CiMenuBurger, CiApple } from "react-icons/ci";
-import { FaCarrot } from "react-icons/fa";
-import { IoFishOutline } from "react-icons/io5";
-import { LiaDrumstickBiteSolid } from "react-icons/lia";
-import { SiBuymeacoffee } from "react-icons/si";
-import { CgIcecream } from "react-icons/cg";
-import { GiCupcake } from "react-icons/gi";
-import { LuIceCreamBowl } from "react-icons/lu";
-import { PiCookingPot } from "react-icons/pi";
-import { GoPlus } from "react-icons/go";
-import useOutsiteClick from '../hooks/outsideClick';
+
 
 const NavBer = () => {
-  const [open, setOpen] = useState(false);
-  const CategoryRef = useRef(null);
-
-  useOutsiteClick(CategoryRef, () => setOpen(false), open);
-
   return (
-    <div className='bg-[#0e0d0d] w-full'>
+    <div className='bg-[#0e0d0d] w-full mt-5 text-white font-pop '>
       <Container>
-        <nav className='flex justify-between items-center'>
-           <div  className='flex items-center'>
-            <div  onClick={() => setOpen(!open)} ref={CategoryRef} className='flex'>
-             
-             <div className='text-white bg-primry p-4 cursor-pointer'>
-              <CiMenuBurger size={32} />
-              </div>
-                <div className='relative'>
-               <div className='flex items-center gap-2 mr-14 pl-4 pr-4 bg-[#333333] py-5 text-white font-pop text-[16px] cursor-pointer'>
-                All Categories 
-                <MdOutlineKeyboardArrowDown size={20}/>
-              </div>
-              <div 
-                className={`
-                  absolute -left-16 top-full bg-white w-56.25 border border-gray-300 shadow-lg z-50
-                  transition-all duration-300 ease-in-out
-                  ${open ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-3 invisible pointer-events-none'}
-                `}
-              >
-                <ul className='font-pop text-sm'>
-
-                  <li className='py-3 px-4 flex items-center gap-2 hover:bg-gray-100 cursor-pointer hover:bg-primry'>
-                    <CiApple size={20}/> Fresh Fruit
-                  </li>
-
-                  <li className='py-3 px-4 flex items-center gap-2 hover:bg-gray-100 cursor-pointer hover:bg-primry'>
-                    <FaCarrot size={20}/> Vegetables
-                  </li>
-
-                  <li className='py-3 px-4 flex items-center gap-2 hover:bg-gray-100 cursor-pointer hover:bg-primry'>
-                    <IoFishOutline size={20}/> River Fish
-                  </li>
-
-                  <li className='py-3 px-4 flex items-center gap-2 hover:bg-gray-100 cursor-pointer hover:bg-primry'>
-                    <LiaDrumstickBiteSolid size={20}/> Chicken & Meat
-                  </li>
-
-                  <li className='py-3 px-4 flex items-center gap-2 hover:bg-gray-100 cursor-pointer hover:bg-primry'>
-                    <SiBuymeacoffee size={20}/> Drink & Water
-                  </li>
-
-                  <li className='py-3 px-4 flex items-center gap-2 hover:bg-gray-100 cursor-pointer hover:bg-primry'>
-                    <CgIcecream size={20}/> Yogurt & Ice Cream
-                  </li>
-
-                  <li className='py-3 px-4 flex items-center gap-2 hover:bg-gray-100 cursor-pointer hover:bg-primry'>
-                    <GiCupcake size={20}/> Cake & Bread
-                  </li>
-
-                  <li className='py-3 px-4 flex items-center gap-2 hover:bg-gray-100 cursor-pointer hover:bg-primry'>
-                    <LuIceCreamBowl size={20}/> Butter & Cream
-                  </li>
-
-                  <li className='py-3 px-4 flex items-center gap-2 hover:bg-gray-100 cursor-pointer hover:bg-primry'>
-                    <PiCookingPot size={20}/> Cooking
-                  </li>
-
-                  <li className='py-3 px-4 flex items-center gap-2 hover:bg-gray-100 cursor-pointer font-medium hover:bg-primry'>
-                    <GoPlus size={20}/> View All Category
-                  </li>
-                </ul>
-              </div>
-            </div>
-            </div>
-
-            <ul className='flex gap-8 text-[#999999] font-pop text-sm py-5 cursor-pointer'>
-              <li className='flex items-center gap-1 hover:text-white'>Home <MdOutlineKeyboardArrowDown size={20}/></li>
-              <li className='flex items-center gap-1 hover:text-white'>Shop <MdOutlineKeyboardArrowDown size={20}/></li>
-              <li className='flex items-center gap-1 hover:text-white'>Pages <MdOutlineKeyboardArrowDown size={20}/></li>
-              <li className='hover:text-white'>About US</li>
-              <li className='hover:text-white'>Contact US</li>
-            </ul>
-
-          </div>
-
-          <div className='flex items-center text-white gap-2 cursor-pointer text-sm font-pop'>
-            <FiPhoneCall size={18}/> (219) 555-0114
-          </div>
-
-        </nav>
+       <nav className='flex justify-between'>
+        <ul className='flex gap-x-8 items-center text-sm font-pop relative'>
+          <li className='p-4 bg-primry mr-30'><Link to="#"><FaBars/></Link></li>
+          <li className='font-bold absolute bg-[#333333] top-0 left-[46px] p-3.25'><Link className='flex items-center gap-x-1 ' to="#">All Categories <FaAngleDown/></Link></li>
+          <li><Link className='flex items-center gap-x-1 ]' to="#">Home <FaAngleDown /></Link></li>
+          <li><Link className='flex items-center gap-x-1 ]' to="#">Shop <FaAngleDown /></Link></li>
+          <li><Link className='flex items-center gap-x-1 ]' to="#">Pages <FaAngleDown /></Link></li>
+          <li><Link className='flex items-center gap-x-1 ]' to="#">Blog <FaAngleDown /></Link></li>
+          <li><Link to="#">About Us </Link></li>
+          <li><Link to="#">Contact Us </Link></li>
+        </ul>
+        <div className='flex items-center'>
+          <Link className='flex items-center gap-x-2' to='tel:2195550114'> <FiPhoneCall /> (219) 555-0114</Link>
+        </div>
+       </nav>
       </Container>
     </div>
   )

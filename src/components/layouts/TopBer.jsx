@@ -24,7 +24,7 @@ const TopBer = () => {
 
   return (
     <>
-      <div className='border-b border-2-b border-gry font-pop text-sm text-[#666666] py-3.25'>
+      <div className='border-b border-2-b border-[#E5E5E5] font-pop text-sm text-[#666666] py-3.25'>
         <Container>
           <div className='flex justify-between cursor-pointer'>
             <div className='flex items-center gap-1'>
@@ -45,7 +45,6 @@ const TopBer = () => {
                     <ul>
                      {languages.map((item)=>(
                         <li className='text-sm  font-pop hover:bg-[#363636] cursor-pointer'
-                           key={item}
                            onClick={ () => {
                             setLanguage(item);
                             setOpen(false);
@@ -70,7 +69,6 @@ const TopBer = () => {
                     <ul>
                       {currencies.map((item) => (
                         <li className='text-sm  font-pop hover:bg-[#363636] cursor-pointer'
-                          key={item}
                           onClick={() => {
                             setCurrency(item);
                             setOpenTwo(false);

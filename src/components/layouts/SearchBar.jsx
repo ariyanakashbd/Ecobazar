@@ -2,35 +2,49 @@ import React from 'react';
 import Container from './Container';
 import Logo from "../../assets/Logo1.webp";
 import { IoSearch } from "react-icons/io5";
-import { CiHeart } from "react-icons/ci";import { HiOutlineShoppingBag } from "react-icons/hi2";
-
+import { HiOutlineShoppingBag } from "react-icons/hi2";
+import Heart from '../../icon/Heart';
 
 const SearchBar = () => {
   return (
-   <>
-   <Container>
-    <div className='flex justify-between py-[27.5px]'>
-        <div className='cursor-pointer'><img src={Logo} fetchpriority="high" alt="logo" /></div>
-        <div className='relative'>
-          <input className='w-124.5 h-11.25 border border-[#E6E6E6] rounded-md placeholder:text-[#808080] px-11 py-3 placeholder:font-pop placeholder:text-sm outline-[#808080]' type="text" placeholder='Search' />
-          <IoSearch className='relative -top-7.5 left-4 font-20px text-[#1A1A1A]' />
-          <button className='absolute right-[1px] top-0 text-[#FFFFFF] bg-[#00B207] py-2.5 px-6 rounded-r-md cursor-pointer'>
+    <>
+    <div className='border-b border-2-b border-[#E5E5E5] font-pop text-sm text-[#666666] '>
+      <Container>
+      <div className='flex justify-between items-center my-5.5'>
+        <div className='cursor-pointer'>
+          <img src={Logo} fetchPriority="high" alt="logo" />
+        </div>
+       {/* ay khane flex nah dewar karone jodi button mt dewa hoi tahole input mt pai */}
+        <div className='relative flex items-center'>
+          <input
+            className='w-100 h-11.25 border-l border-t border-b border-[#E6E6E6] rounded-l-md pl-11 placeholder:text-[#808080] placeholder:font-pop placeholder:text-sm outline-[#808080]'
+            type="text"
+            placeholder='Search'
+          />
+          <IoSearch className='absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-[#1A1A1A]' />
+          <button className='h-11.25  text-[#FFFFFF] bg-primry px-6 rounded-r-md cursor-pointer'>
             Search
           </button>
         </div>
-        <div className='flex'>
-          <CiHeart className='text-[#1A1A1A] w-[30px] h-7.5 cursor-pointer' />
-          <div className='w-[2px] h-4 bg-[#CCCCCC] ml-3.5 top-1.5 relative'></div>
-          <HiOutlineShoppingBag className='ml-4 w-6.5 h-6.5 cursor-pointer'/>
-          <div className='relative -top-[5px] ml-3'>
-            <p className='font-pop text-sm text-[#4D4D4D]'>Shopping cart:</p>
-            <p className='font-pop text-[#1A1A1A] text-md'>$57.00</p>
+        <div className='flex gap-x-8 items-center'>
+        <div className=' relative after:w-[2px] after:h-6 after:bg-[#CCCCCC] after:content-[""] after:absolute after:top-1 after:-right-4'>
+          <Heart/></div>
+         <div className='flex items-center gap-3'>
+          <div>
+            <HiOutlineShoppingBag className='text-hsize relative top-[-2px]'/>
           </div>
+           <div>
+            <span className='font-pop text-[#4D4D4D] text-sm font-normal '>Shopping cart:</span><br/>
+            <span className='text-[#1A1A1A] font-pop font-bold'>$57.00</span>
+          </div>
+         </div>
         </div>
+      </div>
+    </Container>
     </div>
-   </Container>
-   </>
+    </>
+   
   )
 }
 
-export default SearchBar
+export default SearchBar;

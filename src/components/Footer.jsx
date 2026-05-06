@@ -10,7 +10,7 @@ const Footer = () => {
         <Container>
           <div className='flex justify-between'>
             <div className='max-w-[336px]'>
-                <img src={logo} alt="logo" fetchpriority="high" className='mt-16.75 text-white' />
+                <img src={logo} alt="logo" fetchPriority="high" className='mt-16.75 text-white' />
                 <p className='text-[#808080] font-pop text-sm font-normal leading-120% pr-8 mt-4'>Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis dui, eget bibendum magna congue nec.</p>
                 <div className='flex'>
                     <div className="relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-23 after:h-[2px] after:bg-primry">
