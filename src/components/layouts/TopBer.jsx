@@ -65,7 +65,7 @@ const TopBer = () => {
                 {currency} <FaAngleDown />
 
                 {opentwo && (
-                  <div className='absolute top-8.75 bg-gry p-3'>
+                  <div className='absolute top-8.75 bg-gry p-3 z-50'>
                     <ul>
                       {currencies.map((item) => (
                         <li className='text-sm  font-pop hover:bg-[#363636] cursor-pointer'

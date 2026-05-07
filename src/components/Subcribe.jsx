@@ -16,7 +16,7 @@ const Subcribe = () => {
             <p className='font-pop font-normal text-[#999999]'>Pellentesque eu nibh eget mauris congue mattis mattis nec tellus. Phasellus imperdiet elit eu magna.</p>
            </div>
            <div className='max-w-[536px] relative'>
-            <input type="email" className='w-123 h-13 border outline-[#4c4b4b] border-[#E6E6E6] rounded-3xl placeholder:pl-6 py-3.5' placeholder='Your email address'/>
+            <input type="email" className='w-123 h-13 border pl-15 outline-[#4c4b4b] border-[#E6E6E6] rounded-3xl placeholder:pl-6 py-3.5' placeholder='Your email address'/>
             <button className=' absolute cursor-pointer top-0 -right-15 bg-primry px-10 py-3.75 font-pop font-semibold rounded-[43px] text-[#ffffff]'>Subscribe</button>
            </div>
            <div className='max-w-[184px] flex gap-2 text-[40px] text-[#4D4D4D]'>
