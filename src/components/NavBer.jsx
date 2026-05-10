@@ -30,12 +30,12 @@ const NavBer = () => {
         <ul className='flex gap-x-8 items-center text-sm font-pop relative'>
           <li onClick={()=>setSidebar(!sidebar)} className='p-4 bg-primry mr-30 '><Link to="#"><FaBars/></Link></li>
           <li onMouseEnter={()=>setOpen(!open)} ref={allcatagoryDrop} className='font-bold absolute bg-[#333333] top-0 left-[46px] p-3.25'><Link className='flex items-center gap-x-1 ' to="#">All Categories <FaAngleDown/></Link></li>
-          <li><Link className='flex items-center gap-x-1 ]' to="#">Home <FaAngleDown /></Link></li>
-          <li><Link className='flex items-center gap-x-1 ]' to="#">Shop <FaAngleDown /></Link></li>
-          <li><Link className='flex items-center gap-x-1 ]' to="#">Pages <FaAngleDown /></Link></li>
-          <li><Link className='flex items-center gap-x-1 ]' to="#">Blog <FaAngleDown /></Link></li>
-          <li><Link to="#">About Us </Link></li>
-          <li><Link to="#">Contact Us </Link></li>
+          <li><Link className='flex items-center gap-x-1 text-[#808080] hover:text-white ' to="#">Home <FaAngleDown /></Link></li>
+          <li><Link className='flex items-center gap-x-1 text-[#808080] hover:text-white ' to="#">Shop <FaAngleDown /></Link></li>
+          <li><Link className='flex items-center gap-x-1 text-[#808080] hover:text-white ' to="#">Pages <FaAngleDown /></Link></li>
+          <li><Link className='flex items-center gap-x-1 text-[#808080] hover:text-white ' to="#">Blog <FaAngleDown /></Link></li>
+          <li><Link className='text-[#808080] hover:text-white' to="#">About Us </Link></li>
+          <li><Link className='text-[#808080] hover:text-white' to="#">Contact Us </Link></li>
         </ul>
         <div className='flex items-center'>
           <Link className='flex items-center gap-x-2' to='tel:2195550114'> <FiPhoneCall /> (219) 555-0114</Link>
