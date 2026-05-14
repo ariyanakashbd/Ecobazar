@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from './layouts/Container';
-import { FaFacebook } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -29,7 +29,7 @@ const Subcribe = () => {
             </div>
            <div className='flex gap-4 ml-4'>
              <div className='flex w-10 h-10 rounded-full text-[#4D4D4D] text-[30px] justify-center items-center hover:bg-primry hover:text-white'>
-               <Link><FaFacebook/></Link>
+               <Link to={"https://web.facebook.com/ariyan.akash.01303"}><FaFacebookF /></Link>
              </div>
              <div className='flex w-10 h-10 rounded-full text-[#4D4D4D] text-[30px] justify-center items-center hover:bg-primry hover:text-white'>
                 <Link><FaTwitter/></Link>

@@ -26,7 +26,7 @@ const NavBer = () => {
   return (
     <div className='bg-[#0e0d0d] w-full mt-5 text-white font-pop '>
       <Container>
-       <nav className='flex justify-between'>
+       <nav onMouseLeave={()=> setOpen(false)} className='flex justify-between'>
         <ul className='flex gap-x-8 items-center text-sm font-pop relative'>
           <li onClick={()=>setSidebar(!sidebar)} className='p-4 bg-primry mr-30 '><Link to="#"><FaBars/></Link></li>
           <li onMouseEnter={()=>setOpen(!open)} ref={allcatagoryDrop} className='font-bold absolute bg-[#333333] top-0 left-[46px] p-3.25'><Link className='flex items-center gap-x-1 ' to="#">All Categories <FaAngleDown/></Link></li>
