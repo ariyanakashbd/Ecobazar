@@ -7,6 +7,7 @@ import Footer from '../Footer'
 import Subcribe from '../Subcribe'
 import Breadcrumb from '../Breadcrumb'
 import { useLocation } from 'react-router'
+import Banner from './Banner'
 
 
 const MainLayouts = () => {
@@ -16,6 +17,7 @@ const MainLayouts = () => {
     <TopBer/>
     <SearchBar/>
     <NavBer/>
+    <Banner/>
     {pageName !== '/' && <Breadcrumb/>}
     <Outlet/>
     <Subcribe/>
