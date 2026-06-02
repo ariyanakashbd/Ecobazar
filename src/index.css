@@ -50,3 +50,38 @@
   background: gray;
   cursor: not-allowed;
 }
+.swiper-pagination-bullet{
+  width: 10px;
+  height: 10px;
+  background: red;
+  display:inline-block;
+  margin-left: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.swiper-pagination-bullet-active{
+  background: green;
+}
+.swiper-pagination{
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+.swiper-scrollbar{
+  opacity: 0;
+  transition-duration: 400ms;
+  height: 10px;
+  background: rgb(83, 105, 38);
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  border-radius:50px;
+}
+.swiper-scrollbar-drag {
+  background: rgb(182, 219, 193);
+  height: 10px !important;
+  border-radius: 50px;
+}
