@@ -17,7 +17,6 @@ const MainLayouts = () => {
     <TopBer/>
     <SearchBar/>
     <NavBer/>
-    <Banner/>
     {pageName !== '/' && <Breadcrumb/>}
     <Outlet/>
     <Subcribe/>

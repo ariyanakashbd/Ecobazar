@@ -36,7 +36,7 @@ const NavBer = () => {
   useOutsiteClick(blogDropReff,()=>setBlogDrop(false),blogDrop);
   useOutsiteClick(sidebarRef,()=>setSidebar(false),sidebar);
   return (
-    <div onMouseLeave={()=>setPagesDrop(false)} className='bg-[#0e0d0d] w-full mt-5 text-white font-pop '>
+    <div onMouseLeave={()=>setPagesDrop(false)} className='bg-[#0e0d0d] absolute z-50 w-full mt-5 text-white font-pop '>
       <Container>
        <nav onMouseLeave={()=> setOpen(false)} onMouseLeave={()=>setShopDrop(false)} className='flex justify-between'>
         <ul onMouseLeave={()=>setHomeDrop(false)} className='flex gap-x-8 items-center text-sm font-pop relative'>
@@ -90,7 +90,7 @@ const NavBer = () => {
           <Link className='flex items-center gap-x-2' to='tel:2195550114'> <FiPhoneCall /> (219) 555-0114</Link>
         </div>
         {open &&
-          <div  className='absolute bg-white text-black font-pop tbold  p-2 top-50.75 left-13 border border-[#333333] w-46.25 '>
+          <div  className='absolute bg-white text-black font-pop tbold  p-2 top-11 left-13 border border-[#333333] w-46.25 '>
           <ul>
           <li className=' hover:bg-primry p-2'><Link className='flex gap-x-1 items-center'><FaCarrot/>Fresh Fruit</Link></li>
           <li className=' hover:bg-primry p-2'><Link className='flex gap-x-1 items-center'><FaCarrot/>Vegetables</Link></li>
