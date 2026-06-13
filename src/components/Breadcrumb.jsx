@@ -9,7 +9,7 @@ const Breadcrumb = () => {
     let arr = pageName.pathname.split('/')
   return (
     <>
-    <div style={{background:`url(${breadcrumb})`}}>
+    <div className='mt-16.5 bg-cover bg-no-repeat' style={{background:`url(${breadcrumb})`}}>
         <Container>
             <div className='text-[#808080] flex items-center gap-2 py-5 font-pop text-[16px]'>
                 <MdHomeFilled className='text-2xl' />
@@ -19,7 +19,7 @@ const Breadcrumb = () => {
                     {index < arr.length -1 && <span className='text-[#808080]'>{"/".replace("/"," >")}</span>}
                   </span>
                  ))}
-                <span></span>
+                
             </div>
         </Container>
     </div>
