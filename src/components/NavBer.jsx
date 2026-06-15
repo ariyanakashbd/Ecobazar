@@ -37,21 +37,22 @@ const NavBer = () => {
   useOutsiteClick(sidebarRef,()=>setSidebar(false),sidebar);
   return (
     
-    <div onMouseLeave={()=>{setPagesDrop(false); setBlogDrop(false);}} className='bg-[#0e0d0d] absolute z-50 w-full mt-5 text-white font-pop '>
+    <div onMouseLeave={()=>{setPagesDrop(false); setBlogDrop(false);}} className='bg-[#0e0d0d] w-full mt-5 text-white font-pop '>
       <Container>
        
        <nav onMouseLeave={()=> { setOpen(false); setShopDrop(false); setHomeDrop(false); setBlogDrop(false); }} className='flex justify-between'>
-        <ul onMouseLeave={()=>{setHomeDrop(false); setBlogDrop(false);}} className='flex gap-x-8 items-center text-sm font-pop relative'>
-          <li onClick={()=>setSidebar(!sidebar)} className='p-4 bg-primry mr-30 '><Link to="#"><FaBars/></Link></li>
-          <li onMouseEnter={()=>setOpen(!open)} ref={allcatagoryDrop} className='font-bold absolute bg-[#333333] top-0 left-[46px] p-3.25'><Link className='flex items-center gap-x-1 ' to="#">All Categories <FaAngleDown/></Link></li>
-          <li onMouseEnter={()=>setHomeDrop(!homeDrop)}  ref={homeDropReff}><Link className='flex items-center gap-x-1 text-[#808080] hover:text-white ' to="#">Home <FaAngleDown /></Link></li>
+        <div>
+          <ul onMouseLeave={()=>{setHomeDrop(false); setBlogDrop(false);}} className='flex gap-x-8 items-center text-sm font-pop relative'>
+          <li onClick={()=>setSidebar(!sidebar)} className='p-4 bg-primry mr-30 text-[32px]'><Link to="#"><FaBars /></Link></li>
+          <li onMouseEnter={()=>setOpen(!open)} ref={allcatagoryDrop} className='font-bold absolute bg-[#333333] top-0 left-[64px] p-5.5'><Link className='flex items-center gap-x-1 mr-17' to="#">All Categories <FaAngleDown className='absolute right-5.5'/></Link></li>
+          <li onMouseEnter={()=>setHomeDrop(!homeDrop)}  ref={homeDropReff}><Link className='flex items-center gap-x-1 text-[#808080] hover:text-white ml-26 ' to="#">Home <FaAngleDown /></Link></li>
           <li onMouseEnter={()=>setShopDrop(!shopDrop)} ref={shopDropReff} ><Link className='flex items-center gap-x-1 text-[#808080] hover:text-white ' to="#">Shop <FaAngleDown /></Link></li>
           <li onMouseEnter={()=>setPagesDrop(!pagesDrop)}  ref={pagesDropReff}><Link className='flex items-center gap-x-1 text-[#808080] hover:text-white ' to="#">Pages <FaAngleDown /></Link></li>
           <li onMouseEnter={()=>setBlogDrop(!blogDrop)} ref={blogDropReff}><Link className='flex items-center gap-x-1 text-[#808080] hover:text-white ' to="#">Blog <FaAngleDown /></Link></li>
           <li><Link className='text-[#808080] hover:text-white' to="#">About Us </Link></li>
           <li><Link className='text-[#808080] hover:text-white' to="#">Contact Us </Link></li>
           {homeDrop &&
-          <div className='bg-[#ffffff] font-pop text-sm  text-[#000000] border-2  w-15  absolute top-11.5 left-48 text-center'>
+          <div className='bg-[#ffffff] font-pop text-sm  text-[#000000] border-2  w-15  absolute top-15 z-10 left-80 text-center'>
             <ul>
               <Link to="#"><li className='mt-2 hover:bg-primry'>Home1</li></Link>
               <Link to="#"><li className='mt-2 hover:bg-primry'>Home2</li></Link>
@@ -60,7 +61,7 @@ const NavBer = () => {
             </ul>
           </div>}
           {shopDrop &&
-          <div className='bg-[#ffffff] font-pop text-sm  text-[#000000] border-2  w-15  absolute top-11.5 left-71 text-center'>
+          <div className='bg-[#ffffff] font-pop text-sm  text-[#000000] border-2  w-15  absolute top-15 right-88 text-center z-30'>
             <ul>
               <Link to="#"><li className='mt-2 hover:bg-primry'>Home1</li></Link>
               <Link to="#"><li className='mt-2 hover:bg-primry'>Home2</li></Link>
@@ -69,7 +70,7 @@ const NavBer = () => {
             </ul>
           </div>}
           {pagesDrop &&
-          <div className='bg-[#ffffff] font-pop text-sm  text-[#000000] border-2  w-15  absolute top-11.5 left-90 text-center'>
+          <div className='bg-[#ffffff] font-pop text-sm  text-[#000000] border-2  w-15  absolute top-15 right-67 text-center z-20'>
             <ul>
               <Link to="#"><li className='mt-2 hover:bg-primry'>Home1</li></Link>
               <Link to="#"><li className='mt-2 hover:bg-primry'>Home2</li></Link>
@@ -78,7 +79,7 @@ const NavBer = () => {
             </ul>
           </div>}
           {blogDrop &&
-          <div className='bg-[#ffffff] font-pop text-sm  text-[#000000] border-2  w-15  absolute top-11.5 left-113 text-center'>
+          <div className='bg-[#ffffff] font-pop text-sm  text-[#000000] border-2  w-15  absolute top-15 right-45 text-center z-40'>
             <ul>
               <Link to="#"><li className='mt-2 hover:bg-primry'>Home1</li></Link>
               <Link to="#"><li className='mt-2 hover:bg-primry'>Home2</li></Link>
@@ -87,12 +88,13 @@ const NavBer = () => {
             </ul>
           </div>}
         </ul>
+        </div>
         
         <div className='flex items-center'>
           <Link className='flex items-center gap-x-2' to='tel:2195550114'> <FiPhoneCall /> (219) 555-0114</Link>
         </div>
         {open &&
-          <div  className='absolute bg-white text-black font-pop tbold  p-2 top-11 left-13 border border-[#333333] w-46.25 '>
+          <div  className='absolute bg-white text-black font-pop text-bold  p-2 top-50 left-29.25 border border-[#333333] w-51.5 z-50'>
           <ul>
           <li className=' hover:bg-primry p-2'><Link to="#" className='flex gap-x-1 items-center'><FaCarrot/>Fresh Fruit</Link></li>
           <li className=' hover:bg-primry p-2'><Link to="#" className='flex gap-x-1 items-center'><FaCarrot/>Vegetables</Link></li>
@@ -110,10 +112,10 @@ const NavBer = () => {
       </Container>
       <div ref={sidebarRef} className='absolute  '>
         <div
-        className={`fixed top-0 left-0 h-full w-100 transition-all duration-300 ease-in-out bg-white border border-[#E5E5E5] shadow-2xl shadow-black z-99 text-black p-5
+        className={`fixed z-10 top-0 left-0 h-full w-100 transition-all duration-300 ease-in-out bg-white border border-[#E5E5E5] shadow-2xl shadow-black text-black p-5
         ${sidebar ? "translate-x-0" : "-translate-x-full"}`}>
         <h2 className="text-xl font-bold mb-6"> All Categories</h2>
-        <ul className="space-y-4 absolute z-999">
+        <ul className="space-y-4 absolute">
          <li className=' hover:bg-primry p-2'><Link to="#" className='flex gap-x-1 items-center'><FaCarrot/>Fresh Fruit</Link></li>
           <li className=' hover:bg-primry p-2'><Link to="#" className='flex gap-x-1 items-center'><FaCarrot/>Vegetables</Link></li>
           <li className=' hover:bg-primry p-2'><Link to="#" className='flex gap-x-1 items-center'><IoFishOutline/>River Fish</Link></li>

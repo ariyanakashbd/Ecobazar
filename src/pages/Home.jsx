@@ -29,8 +29,8 @@ const Home = () => {
     <>
     <Banner/>
     <Costomar/>
-    <ProdactShowcase dataPass={allCat}/>
-    <ProdactShowcase dataPass={allpro}/>
+    <ProdactShowcase title="Popular Categories" dataPass={allCat}/>
+    <ProdactShowcase title="Popular Products"  dataPass={allpro}/>
     </>
   )
 }

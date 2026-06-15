@@ -9,9 +9,9 @@ const Breadcrumb = () => {
     let arr = pageName.pathname.split('/')
   return (
     <>
-    <div className='mt-16.5 bg-cover bg-no-repeat' style={{background:`url(${breadcrumb})`}}>
+    <div className='bg-center bg-cover bg-no-repeat' style={{backgroundImage:`url(${breadcrumb})`}}>
         <Container>
-            <div className='text-[#808080] flex items-center gap-2 py-5 font-pop text-[16px]'>
+            <div className='text-[#808080] flex items-center gap-2 py-12 font-pop text-[16px]'>
                 <MdHomeFilled className='text-2xl' />
                  {arr.map((item,index)=>(
                   <span key={index} className='font-pop text-sm text-[#999999]'>

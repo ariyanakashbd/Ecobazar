@@ -4,16 +4,17 @@ import Logo from "../../assets/Logo1.webp";
 import { IoSearch } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import Heart from '../../icon/Heart';
+import { Link } from 'react-router';
 
 const SearchBar = () => {
   return (
     <>
-    <div className='border-b border-2-b border-[#E5E5E5] font-pop text-sm text-[#666666] '>
+    <div className='font-pop text-sm text-[#666666] '>
       <Container>
       <div className='flex justify-between items-center my-5.5'>
-        <div className='cursor-pointer'>
+        <Link to="/" className='cursor-pointer'>
           <img src={Logo} fetchPriority="high" alt="logo" />
-        </div>
+        </Link>
        {/* ay khane flex nah dewar karone jodi button mt dewa hoi tahole input mt pai */}
         <div className='relative flex items-center'>
           <input

@@ -7,7 +7,7 @@ import { FaStar } from "react-icons/fa6";
 import { FaStarHalfAlt } from "react-icons/fa";
 
 
-const ProdactShowcase = ({ dataPass }) => {
+const ProdactShowcase = ({ title, dataPass }) => {
  function rating(count) {
   let halfStar = count.toString().split('.')[1];
   let index = Math.floor(count);
@@ -33,7 +33,7 @@ const ProdactShowcase = ({ dataPass }) => {
     <>
     <Container>
             <div className='flex justify-between mt-15 mb-8'>
-              <h2 className='font-pop font-semibold text-[32px] text-[#1A1A1A]'>Popular Categories</h2>
+              <h2 className='font-pop font-semibold text-[32px] text-[#1A1A1A]'>{title}</h2>
               <Link className='flex items-center font-pop text-[16px] font-medium text-[#00B207]' to="/cat">View All <IoIosArrowRoundForward  className='text-[30px]'/></Link>
             </div>
 

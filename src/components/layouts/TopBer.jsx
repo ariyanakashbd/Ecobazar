@@ -24,7 +24,7 @@ const TopBer = () => {
 
   return (
     <>
-      <div className='border-b border-2-b border-[#E5E5E5] font-pop text-sm text-[#666666] py-3.25'>
+      <div className='border-b border-b-2 border-[#E5E5E5] font-pop text-sm text-[#666666] py-3.25'>
         <Container>
           <div className='flex justify-between cursor-pointer'>
             <div className='flex items-center gap-1'>
