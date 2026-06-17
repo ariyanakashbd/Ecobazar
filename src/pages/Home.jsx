@@ -3,11 +3,15 @@ import Banner from '../components/layouts/Banner'
 import ProdactShowcase from '../components/layouts/ProdactShowcase'
 import Costomar from '../components/layouts/Costomar'
 import axios from 'axios'
+import Timer from '../components/layouts/Timer'
+import Discount from '../components/layouts/Discount'
+import LatestNews from '../components/layouts/LatestNews'
 
 
 const Home = () => {
   let [allpro , setAllPro] = useState([]);
   let [allCat , setAllCat] = useState([]);
+  let [FeaturedProducts , setFeaturedProducts] = useState([]);
 
   useEffect(()=>{
   async function allData () {
@@ -25,12 +29,25 @@ const Home = () => {
     }
     allData()
   },[])
+  useEffect(()=>{
+  async function allData () {
+      let proData = await axios.get('https://dummyjson.com/products')
+      setFeaturedProducts(proData.data.products.slice(0, 4));
+      
+    }
+    allData()
+  },[])
   return (
     <>
     <Banner/>
     <Costomar/>
     <ProdactShowcase title="Popular Categories" dataPass={allCat}/>
     <ProdactShowcase title="Popular Products"  dataPass={allpro}/>
+    <Timer/>
+    <ProdactShowcase title="Hotdeal"  dataPass={allpro}/>
+    <Discount/>
+    <ProdactShowcase title="Featured Products"  dataPass={FeaturedProducts}/>
+    <LatestNews/>
     </>
   )
 }
