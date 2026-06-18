@@ -50,9 +50,9 @@ const ProdactShowcase = ({ title, dataPass }) => {
         <div className={`flex flex-wrap justify-center ${title == "Popular Categories" && "gap-5 text-center "}`}>
 
           {dataPass?.map(item => (
-            <div className={`cursor-pointer group ${title == 'Popular Categories' ? 'w-[14.66%]' : 'w-[20%]'} ${title == 'Featured Products' ? 'w-[25%]' : ''} border border-[#E6E6E6] rounded-[5px] hover:border-[#2C742F] hover:shadow-2xl transition-all duration-300`}>
+            <div className={`cursor-pointer group ${title == 'Popular Categories' ? 'w-[14.66%]' : 'w-[20%]'} ${title == 'Featured Products' ? 'w-[20%]' : ''} border border-[#E6E6E6] rounded-[5px] hover:border-[#2C742F] hover:shadow-2xl transition-all duration-300`}>
 
-              <img src={popular1} alt="popular1" className='mx-auto' />
+              <img src={item.thumbnail || popular1} alt="popular1" className='mx-auto' />
 
               <h3 className={`text-[#1A1A1A] pl-3 font-pop font-medium text-[16px] group-hover:text-[#2C742F] transition-all duration-300 ${title == "Popular Categories" && "my-4"}`}>
                 {item.name

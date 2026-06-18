@@ -13,8 +13,8 @@ const Subcribe = () => {
     <Container>
         <div className='flex justify-between mt-25 mb-10 items-center'>
            <div className='max-w-[448px]'>
-            <h3 className='font-pop text-[#1A1A1A] font-semibold mb-1'>Subcribe our Newsletter</h3>
-            <p className='font-pop font-normal text-[#999999]'>Pellentesque eu nibh eget mauris congue mattis mattis nec tellus. Phasellus imperdiet elit eu magna.</p>
+            <h3 className='font-pop text-[#1A1A1A] font-semibold text-[32px] mb-1'>Subcribe our Newsletter</h3>
+            <p className='font-pop font-normal text-[#999999] text-sm'>Pellentesque eu nibh eget mauris congue mattis mattis nec tellus. Phasellus imperdiet elit eu magna.</p>
            </div>
            <div className='relative flex items-center'>
               <input

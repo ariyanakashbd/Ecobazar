@@ -8,6 +8,15 @@ import { FaRegUser } from "react-icons/fa";
 import { BiMessageAlt } from "react-icons/bi";
 import { Link } from 'react-router';
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import Testimonial from '../../assets/Testimonial Card.webp';
+import Testimonial2 from '../../assets/Testimonial caedtwo.webp';
+import Testimonial3 from '../../assets/Testimonial.webp';
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 
 const LatestNews = () => {
@@ -52,8 +61,39 @@ const LatestNews = () => {
               
             </div>
         </div>
-        
     </Container>
+    <div className='bg-[#F2F2F2] mt-15 '>
+        <Container>
+            <div className='relative bg-[#F2F2F2] '>
+         <div className=' pt-15 font-pop font-semibold text-[32px] text-[#1A1A1A]  relative'>Client Testimonials</div>
+         <div className='prev-arrowone'><FaArrowLeft /></div>
+        <div className='next-arrowone'><FaArrowRight /></div>
+        <div className='flex mt-9 '>
+            <Swiper
+            spaceBetween={0}
+            slidesPerView={3}
+            className='w-full'
+            navigation={{
+                prevEl: '.next-arrowone',
+                nextEl: '.prev-arrowone',
+            }}
+            modules={[Navigation]}
+            >
+            <SwiperSlide> <img src={Testimonial} alt="BannerBig" className='w-full' /></SwiperSlide>
+            <SwiperSlide> <img src={Testimonial2} alt="BannerBig" /></SwiperSlide>
+            <SwiperSlide> <img src={Testimonial3} alt="BannerBig" /></SwiperSlide>
+            <SwiperSlide> <img src={Testimonial} alt="BannerBig" /></SwiperSlide>
+            <SwiperSlide> <img src={Testimonial} alt="BannerBig" /></SwiperSlide>
+            <SwiperSlide> <img src={Testimonial2} alt="BannerBig" /></SwiperSlide>
+            <SwiperSlide> <img src={Testimonial3} alt="BannerBig" /></SwiperSlide>
+            <SwiperSlide> <img src={Testimonial} alt="BannerBig" /></SwiperSlide>
+            
+            </Swiper>
+        </div>
+       </div>
+      
+        </Container>
+    </div>
     </>
   )
 }

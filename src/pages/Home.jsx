@@ -6,17 +6,19 @@ import axios from 'axios'
 import Timer from '../components/layouts/Timer'
 import Discount from '../components/layouts/Discount'
 import LatestNews from '../components/layouts/LatestNews'
+import CompanyName from '../components/layouts/CompanyName'
 
 
 const Home = () => {
   let [allpro , setAllPro] = useState([]);
   let [allCat , setAllCat] = useState([]);
   let [FeaturedProducts , setFeaturedProducts] = useState([]);
+  let [hotDeals , setHotDeals] = useState([]);
 
   useEffect(()=>{
   async function allData () {
       let proData = await axios.get('https://dummyjson.com/products')
-      setAllPro(proData.data.products.slice(0,12));
+      setAllPro(proData.data.products.slice(0,10));
       
     }
     allData()
@@ -32,7 +34,15 @@ const Home = () => {
   useEffect(()=>{
   async function allData () {
       let proData = await axios.get('https://dummyjson.com/products')
-      setFeaturedProducts(proData.data.products.slice(0, 4));
+      setHotDeals(proData.data.products.slice(0, 15));
+      
+    }
+    allData()
+  },[])
+  useEffect(()=>{
+  async function allData () {
+      let proData = await axios.get('https://dummyjson.com/products')
+      setFeaturedProducts(proData.data.products.slice(0, 5));
       
     }
     allData()
@@ -44,10 +54,11 @@ const Home = () => {
     <ProdactShowcase title="Popular Categories" dataPass={allCat}/>
     <ProdactShowcase title="Popular Products"  dataPass={allpro}/>
     <Timer/>
-    <ProdactShowcase title="Hotdeal"  dataPass={allpro}/>
+    <ProdactShowcase title="Hot Deals"  dataPass={hotDeals}/>
     <Discount/>
     <ProdactShowcase title="Featured Products"  dataPass={FeaturedProducts}/>
     <LatestNews/>
+    <CompanyName/>
     </>
   )
 }

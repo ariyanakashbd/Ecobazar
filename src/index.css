@@ -18,7 +18,7 @@
   @apply flex items-center ml-10 relative after:w-[2px] after:h-[15px] after:bg-[#E6E6E6] after:content-[""] after:absolute after:top-[4px] after:left-[-30px];
 }
 .prev-arrow{
-  background:red;
+  background:white;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -32,7 +32,7 @@
   z-index: 111;
 }
 .next-arrow{
-  background:red;
+  background:white;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -84,4 +84,51 @@
   background: rgb(182, 219, 193);
   height: 10px !important;
   border-radius: 50px;
+}
+
+.next-arrowone:hover{
+  background:#00B207;
+}
+.prev-arrowone:hover{
+  background: #00B207;
+}
+.next-arrowone,
+.prev-arrowone{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  z-index: 111;
+  cursor: pointer;
+  border: 1px solid #E6E6E6;
+  transition: all .3s ease;
+}
+
+.prev-arrowone{
+  right: 60px;
+}
+
+.next-arrowone{
+  right: 0;
+}
+
+.next-arrowone:hover,
+.prev-arrowone:hover{
+  background: #00B207;
+  color: white;
+}
+
+.next-arrowone:hover svg,
+.prev-arrowone:hover svg{
+  color: white;
+}
+
+.swiper-button-disabled{
+  background: #E6E6E6 !important;
+  color: #999 !important;
+  cursor: not-allowed;
 }
