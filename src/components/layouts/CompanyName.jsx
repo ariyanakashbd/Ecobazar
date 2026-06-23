@@ -35,7 +35,8 @@ const companyName = () => {
   return (
     <>
     <Container>
-         <div className='flex justify-between items-center h-38'>
+         <marquee behavior="" direction="">
+          <div className='flex justify-between items-center h-38'>
           <img src={victor} alt="victor" />
           <img src={mango} alt="mango" />
           <img src={Group} alt="Group" />
@@ -43,6 +44,7 @@ const companyName = () => {
           <img src={bookof} alt="bookof" />
           <img src={Group1} alt="Group1" />
        </div>
+         </marquee>
        <div>
         <h2 className='text-[32px] font-pop font-semibold text-[#1A1A1A] text-center mb-8'>Follow us on Instagram</h2>
         <div className='flex justify-between'>
