@@ -15,9 +15,9 @@ const Banner = () => {
   return (
     <>
     <Container>
-       <section className='mt-20'>
-         <div className='flex pt- mb-6 relative'>
-           <div className='max-w-[872px]'>
+       <section className='mt-8 sm:mt-12 lg:mt-20'>
+         <div className='flex flex-col gap-6 mb-6 relative lg:flex-row'>
+           <div className='w-full lg:max-w-[872px]'>
             <Swiper
             pagination={{
               clickable:true,
@@ -34,18 +34,18 @@ const Banner = () => {
             }}
             modules={[Navigation,Pagination,Autoplay]}
             >
-            <SwiperSlide> <img src={BannerBig} alt="BannerBig" /></SwiperSlide>
-            <SwiperSlide> <img src={BannerBig} alt="BannerBig" /></SwiperSlide>
-            <SwiperSlide> <img src={BannerBig} alt="BannerBig" /></SwiperSlide>
-            <SwiperSlide> <img src={BannerBig} alt="BannerBig" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerBig} alt="BannerBig" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerBig} alt="BannerBig" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerBig} alt="BannerBig" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerBig} alt="BannerBig" /></SwiperSlide>
              <div className='prev-arrow'><FaArrowLeft /></div>
             <div className='next-arrow'><FaArrowRight /></div>
             </Swiper>
            </div>
-           <div className='max-w-[423px] ml-6'>
+           <div className='w-full lg:max-w-[423px] lg:ml-6'>
             <Swiper
            direction="vertical"
-            className="h-[300px]"
+            className="h-[220px] sm:h-[300px]"
             pagination={{
               clickable: true,
             }}
@@ -57,13 +57,13 @@ const Banner = () => {
             slidesPerView={1}
             modules={[ Autoplay]}
             >
-            <SwiperSlide> <img className='mb-6' src={BannerSmallTwo} alt="BannerSmall" /></SwiperSlide>
-            <SwiperSlide> <img className='mb-6' src={BannerSmallTwo} alt="BannerSmall" /></SwiperSlide>
-            <SwiperSlide> <img className='mb-6' src={BannerSmallTwo} alt="BannerSmall" /></SwiperSlide>
-            <SwiperSlide> <img className='mb-6' src={BannerSmallTwo} alt="BannerSmall" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerSmallTwo} alt="BannerSmall" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerSmallTwo} alt="BannerSmall" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerSmallTwo} alt="BannerSmall" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerSmallTwo} alt="BannerSmall" /></SwiperSlide>
             </Swiper>
-            <div className='mt-2.5'>
-              <div className=''>
+            <div className='mt-4'>
+              <div>
             <Swiper
             pagination={{
               clickable:true,
@@ -77,10 +77,10 @@ const Banner = () => {
    
             modules={[Navigation,Scrollbar,Autoplay]}
             >
-            <SwiperSlide><img src={BannerSmall} alt="BannerSmall" /></SwiperSlide>
-            <SwiperSlide><img src={BannerSmall} alt="BannerSmall" /></SwiperSlide>
-            <SwiperSlide><img src={BannerSmall} alt="BannerSmall" /></SwiperSlide>
-            <SwiperSlide><img src={BannerSmall} alt="BannerSmall" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerSmall} alt="BannerSmall" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerSmall} alt="BannerSmall" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerSmall} alt="BannerSmall" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerSmall} alt="BannerSmall" /></SwiperSlide>
             </Swiper>
            </div>
            </div>

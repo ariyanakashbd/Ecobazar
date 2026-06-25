@@ -6,8 +6,8 @@ const Discount = () => {
   return (
     <>
     <Container>
-        <div className='mt-15 max-w-[1320px]'>
-        <Link><img src={discountBanner} alt="discountBanner" /></Link>
+        <div className='mt-10 sm:mt-15 w-full'>
+        <Link><img className='w-full h-auto rounded-xl' src={discountBanner} alt="discountBanner" /></Link>
       </div>
     </Container>
     </>

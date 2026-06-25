@@ -14,7 +14,7 @@ const ProdactShowcase = ({ title, dataPass }) => {
     let arr = [];
     for (let i = 1; i <= 5; i++) {
      if (i <= index) {
-       arr.push("color");
+        arr.push("color");
       } else {
         arr.push(i);
       }
@@ -58,7 +58,7 @@ const ProdactShowcase = ({ title, dataPass }) => {
                     ) : star == "half" ? (
                       <FaStarHalfAlt className='text-yellow-300' />
                     ) : (
-                     <FaStar className='text-gray-300' />
+                      <FaStar className='text-gray-300' />
                     )
                   )}
                   <div className='absolute right-[26px] -top-7 text-[20px] group-hover:bg-[#00B207] group-hover:p-[4px] group-hover:rounded-2xl transition-all duration-300 group-hover:text-white'>
@@ -76,9 +76,9 @@ const ProdactShowcase = ({ title, dataPass }) => {
               )} 
               </div>
             </div>
-         ))}
-         
+          ))}
+          
         </div>
     </Container>
   )}
-export default ProdactShowcase 
+export default ProdactShowcase

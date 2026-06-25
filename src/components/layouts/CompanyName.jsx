@@ -35,7 +35,7 @@ const companyName = () => {
   return (
     <>
     <Container>
-         <marquee behavior="" direction="">
+         <marquee behavior="left" direction="8">
           <div className='flex justify-between items-center h-38'>
           <img src={victor} alt="victor" />
           <img src={mango} alt="mango" />
