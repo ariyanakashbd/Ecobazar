@@ -39,7 +39,6 @@ const NavBer = () => {
     
     <div onMouseLeave={()=>{setPagesDrop(false); setBlogDrop(false);}} className='bg-[#0e0d0d] w-full mt-5 text-white font-pop '>
       <Container>
-       
        <nav onMouseLeave={()=> { setOpen(false); setShopDrop(false); setHomeDrop(false); setBlogDrop(false); }} className='flex justify-between'>
         <div>
           <ul onMouseLeave={()=>{setHomeDrop(false); setBlogDrop(false);}} className='flex gap-x-8 items-center text-sm font-pop relative'>
@@ -51,6 +50,7 @@ const NavBer = () => {
           <li onMouseEnter={()=>setBlogDrop(!blogDrop)} ref={blogDropReff}><Link className='flex items-center gap-x-1 text-[#808080] hover:text-white ' to="#">Blog <FaAngleDown /></Link></li>
           <li><Link className='text-[#808080] hover:text-white' to="#">About Us </Link></li>
           <li><Link className='text-[#808080] hover:text-white' to="#">Contact Us </Link></li>
+          {/* homeDrop */}
           {homeDrop &&
           <div className='bg-[#ffffff] font-pop text-sm  text-[#000000] border-2  w-15  absolute top-15 z-10 left-80 text-center'>
             <ul>
@@ -60,6 +60,7 @@ const NavBer = () => {
               <Link to="#"><li className='mt-2 hover:bg-primry mb-2'>Home4</li></Link>
             </ul>
           </div>}
+          {/* shopDrop */}
           {shopDrop &&
           <div className='bg-[#ffffff] font-pop text-sm  text-[#000000] border-2  w-15  absolute top-15 right-88 text-center z-30'>
             <ul>
@@ -69,6 +70,7 @@ const NavBer = () => {
               <Link to="#"><li className='mt-2 hover:bg-primry mb-2'>Home4</li></Link>
             </ul>
           </div>}
+          {/* pagesDrop */}
           {pagesDrop &&
           <div className='bg-[#ffffff] font-pop text-sm  text-[#000000] border-2  w-15  absolute top-15 right-67 text-center z-20'>
             <ul>
@@ -78,6 +80,7 @@ const NavBer = () => {
               <Link to="#"><li className='mt-2 hover:bg-primry mb-2'>Home4</li></Link>
             </ul>
           </div>}
+          {/* blog blogDrop */}
           {blogDrop &&
           <div className='bg-[#ffffff] font-pop text-sm  text-[#000000] border-2  w-15  absolute top-15 right-45 text-center z-40'>
             <ul>
@@ -93,6 +96,7 @@ const NavBer = () => {
         <div className='flex items-center'>
           <Link className='flex items-center gap-x-2' to='tel:2195550114'> <FiPhoneCall /> (219) 555-0114</Link>
         </div>
+        {/* All Categories hover deop */}
         {open &&
           <div  className='absolute bg-white text-black font-pop text-bold  p-2 top-50 left-29.25 border border-[#333333] w-51.5 z-50'>
           <ul>
@@ -110,6 +114,7 @@ const NavBer = () => {
         </div>}
        </nav>
       </Container>
+      {/* sliderDrop */}
       <div ref={sidebarRef} className='absolute  '>
         <div
         className={`fixed z-10 top-0 left-0 h-full w-100 transition-all duration-300 ease-in-out bg-white border border-[#E5E5E5] shadow-2xl shadow-black text-black p-5
