@@ -45,7 +45,7 @@ const companyName = () => {
           <img src={Group1} alt="Group1" />
        </div>
          </marquee>
-       <div>
+       <div className='hidden lg:block'>
         <h2 className='text-[32px] font-pop font-semibold text-[#1A1A1A] text-center mb-8'>Follow us on Instagram</h2>
         <div className='flex justify-between'>
           <img onClick={()=>setOpen(true)}  src={instagram} alt="instagram" />

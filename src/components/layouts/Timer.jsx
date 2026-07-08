@@ -5,8 +5,6 @@ import timerThree from '../../assets/timer2.webp';
 import React, { useEffect, useState } from 'react';
 
 const Timer = () => {
-  const targetTime = new Date().getTime() + 2 * 24 * 60 * 60 * 1000;
-
   const [time, setTime] = useState({
     days: 0,
     hours: 0,
@@ -15,6 +13,8 @@ const Timer = () => {
   });
 
   useEffect(() => {
+    const targetTime = new Date().getTime() + 2 * 24 * 60 * 60 * 1000;
+
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetTime - now;
@@ -39,42 +39,39 @@ const Timer = () => {
 
   return (
     <Container>
-      <div className='flex justify-between mt-15'>
+     
+      <div className='flex flex-col lg:flex-row justify-between items-center mt-15 gap-6 px-4 lg:px-0'>
         
-        <div className='relative'>
-          <img src={timer} alt="timer" />
+        <div className='relative w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none lg:w-[32%] flex justify-center mx-auto'>
+          <img src={timer} alt="timer" className="w-full h-auto object-cover rounded-lg" />
 
-          <div className="flex gap-5 absolute top-30 left-1/2 -translate-x-1/2 text-[#ffffff] font-pop">
-            
-            <div>
-              <h3 className="text-2xl font-bold">{pad(time.days)}</h3>
-              <p className="text-xs">Days</p>
+          <div className="flex gap-4 xs:gap-5 sm:gap-6 lg:gap-4 absolute top-[36%] sm:top-[38%] lg:top-[23%] left-1/2 -translate-x-1/2 text-[#ffffff] font-pop text-center">
+            <div className="w-[45px] sm:w-[55px] lg:w-[50px]">
+              <h3 className="text-xl sm:text-2xl lg:text-2xl font-bold">{pad(time.days)}</h3>
+              <p className="text-[10px] sm:text-xs uppercase tracking-wider opacity-90">Days</p>
             </div>
 
-            <div>
-              <h3 className="text-2xl font-bold">{pad(time.hours)}</h3>
-              <p className="text-xs">Hours</p>
+            <div className="w-[45px] sm:w-[55px] lg:w-[50px]">
+              <h3 className="text-xl sm:text-2xl lg:text-2xl font-bold">{pad(time.hours)}</h3>
+              <p className="text-[10px] sm:text-xs uppercase tracking-wider opacity-90">Hours</p>
             </div>
 
-            <div>
-              <h3 className="text-2xl font-bold">{pad(time.minutes)}</h3>
-              <p className="text-xs">Mins</p>
+            <div className="w-[45px] sm:w-[55px] lg:w-[50px]">
+              <h3 className="text-xl sm:text-2xl lg:text-2xl font-bold">{pad(time.minutes)}</h3>
+              <p className="text-[10px] sm:text-xs uppercase tracking-wider opacity-90">Mins</p>
             </div>
 
-            <div>
-              <h3 className="text-2xl font-bold">{pad(time.seconds)}</h3>
-              <p className="text-xs">Secs</p>
+            <div className="w-[45px] sm:w-[55px] lg:w-[50px]">
+              <h3 className="text-xl sm:text-2xl lg:text-2xl font-bold">{pad(time.seconds)}</h3>
+              <p className="text-[10px] sm:text-xs uppercase tracking-wider opacity-90">Secs</p>
             </div>
-
           </div>
         </div>
-
-        <div>
-          <img src={timerTwo} alt="timerTwo" />
+        <div className='hidden lg:block lg:w-[32%]'>
+          <img src={timerTwo} alt="timerTwo" className="w-full h-auto object-cover rounded-lg" />
         </div>
-
-        <div>
-          <img src={timerThree} alt="timerThree" />
+        <div className='hidden lg:block lg:w-[32%]'>
+          <img src={timerThree} alt="timerThree" className="w-full h-auto object-cover rounded-lg" />
         </div>
 
       </div>

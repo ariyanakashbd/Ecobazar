@@ -7,6 +7,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa"
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaEye } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
+
 const ProdactShowcase = ({ title, dataPass }) => {
   function rating(count) {
     let halfStar = count.toString().split('.')[1];
@@ -22,22 +23,24 @@ const ProdactShowcase = ({ title, dataPass }) => {
     if (halfStar) {
       arr[index] = "half";
     }
-  return arr;
+    return arr;
   }
   return (
     <Container>
       
-        <div className='flex justify-between mt-15 mb-8 font-pop font-normal text-sm'>
-          <h2 className='font-pop font-semibold text-[32px] text-[#1A1A1A]'>
+        <div className='lg:flex justify-between mt-15 mb-8 font-pop font-normal text-sm'>
+          <h2 className='font-pop font-semibold text-[24px] lg:text-[32px] text-[#1A1A1A]'>
             {title}
           </h2>
           <Link
-           className='flex items-center font-pop text-[16px] font-medium text-[#00B207]'
-            to="/cat"> View All<IoIosArrowRoundForward className='text-[30px]' /></Link>
+           className='flex items-center font-pop text-[14px] mt-5 lg:mt-0 lg:text-[16px] font-medium text-[#00B207]'
+            to="/cat"> View All<IoIosArrowRoundForward className='text-[25px] lg:text-[30px]' /></Link>
         </div>
-        <div className={` flex flex-wrap justify-center ${title == "Popular Categories" && "gap-5 text-center "}`}>
+        
+        <div className={`items-center w-full text-center flex flex-wrap justify-center gap-y-4 ${title == "Popular Categories" && "lg:gap-5 text-center "}`}>
           {dataPass?.map(item => (
-            <div className={`cursor-pointer relative group ${title == 'Popular Categories' ? 'w-[14.66%]' : 'w-[20%]'} ${title == 'Featured Products' ? 'w-[20%]' : ''} border border-[#E6E6E6] rounded-[5px] hover:border-[#2C742F] hover:shadow-2xl transition-all duration-300`}>
+          
+            <div className={`cursor-pointer relative group w-full md:w-[48%] ${title == 'Popular Categories' ? 'lg:w-[14.66%]' : 'lg:w-[20%]'} ${title == 'Featured Products' ? 'lg:w-[20%]' : ''} border border-[#E6E6E6] rounded-[5px] hover:border-[#2C742F] hover:shadow-2xl transition-all duration-300`}>
             <img src={item.thumbnail || popular1} alt="popular1" className='mx-auto' />
               <h3 className={`text-[#1A1A1A] pl-3 font-pop font-medium text-[16px] group-hover:text-[#2C742F] transition-all duration-300 ${title == "Popular Categories" && "my-4"}`}>
                {item.name

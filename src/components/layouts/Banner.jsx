@@ -38,11 +38,15 @@ const Banner = () => {
             <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerBig} alt="BannerBig" /></SwiperSlide>
             <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerBig} alt="BannerBig" /></SwiperSlide>
             <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerBig} alt="BannerBig" /></SwiperSlide>
-             <div className='prev-arrow'><FaArrowLeft /></div>
-            <div className='next-arrow'><FaArrowRight /></div>
+            <div className="prev-arrow !w-8 !h-8 md:!w-12 md:!h-12 bg-green-500 rounded-full flex items-center justify-center">
+            <FaArrowLeft className="w-4 h-4" />
+          </div>
+            <div className="next-arrow !w-8 !h-8 md:!w-12 md:!h-12 bg-green-500 rounded-full flex items-center justify-center">
+            <FaArrowRight className="w-4 h-4" />
+          </div>
             </Swiper>
            </div>
-           <div className='w-full lg:max-w-[423px] lg:ml-6'>
+           <div className='hidden lg:block w-full lg:max-w-[423px] lg:ml-6'>
             <Swiper
            direction="vertical"
             className="h-[220px] sm:h-[300px]"

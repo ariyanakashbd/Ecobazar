@@ -11,19 +11,19 @@ const Subcribe = () => {
   return (
     <>
     <Container>
-        <div className='flex justify-between mt-25 mb-10 items-center'>
-           <div className='max-w-[448px]'>
-            <h3 className='font-pop text-[#1A1A1A] font-semibold text-[32px] mb-1'>Subcribe our Newsletter</h3>
+        <div className='lg:flex justify-between lg:mt-25 mb-10 items-center'>
+           <div className='lg:max-w-[448px]'>
+            <h3 className='font-pop text-[#1A1A1A] font-semibold text-[24px] lg:text-[32px] mb-1'>Subcribe our Newsletter</h3>
             <p className='font-pop font-normal text-[#999999] text-sm'>Pellentesque eu nibh eget mauris congue mattis mattis nec tellus. Phasellus imperdiet elit eu magna.</p>
            </div>
-           <div className='relative flex items-center'>
+           <div className='relative lg:flex items-center'>
               <input
-                className='w-100 h-13 border-l border-t border-b border-[#E6E6E6] rounded-l-[46px] pl-11 placeholder:text-[#808080] placeholder:font-pop placeholder:text-sm outline-[#808080]'
+                className=' my-5 lg:my-0 w-full py-2 rounded-[50px] border border-2 lg:w-100 lg:py-3.75 lg:border-l lg:border-t lg:border-b border-[#E6E6E6] lg:rounded-l-[46px] pl-11 placeholder:text-[#808080] placeholder:font-pop placeholder:text-sm outline-[#808080]'
                 type="text"
                 placeholder='Search'
               />
-              <IoSearch className='absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-[#1A1A1A]' />
-              <button className='absolute text-[#FFFFFF] bg-primry px-10 py-3.75 rounded-[46px] -right-25 cursor-pointer'>
+              <IoSearch className='absolute left-4 top-[43px] lg:top-1/2 -translate-y-1/2 text-2xl text-[#1A1A1A]' />
+              <button className='lg:absolute text-[#FFFFFF] bg-primry px-4 py-2 lg:px-10 lg:py-3.75 rounded-[46px] lg:-right-25 cursor-pointer mb-2'>
                 Subscribe
               </button>
             </div>
