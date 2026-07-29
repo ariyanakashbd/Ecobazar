@@ -6,6 +6,7 @@ import MainLayouts from "./components/layouts/MainLayouts";
 import Forgot from "./pages/Forgot";
 import Reset from "./pages/Reset";
 import Category from "./pages/Category";
+import Shop from "./pages/Shop";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/Forgot" element={<Forgot/>}/>
           <Route path="/Reset" element={<Reset/>}/>
           <Route path="/cat" element={<Category/>}/>
+          <Route path="/shop" element={<Shop/>}/>
         </Route>
       </Routes>
     </>

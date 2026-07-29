@@ -7,6 +7,7 @@ import Timer from '../components/layouts/Timer'
 import Discount from '../components/layouts/Discount'
 import LatestNews from '../components/layouts/LatestNews'
 import CompanyName from '../components/layouts/CompanyName'
+import Accodion from '../components/Accodion'
 
 
 const Home = () => {
@@ -47,10 +48,25 @@ const Home = () => {
     }
     allData()
   },[])
+
   return (
     <>
     <Banner/>
     <Costomar/>
+
+    <div style={{
+      display: "flex",
+      gap: 32,
+      padding: "40px 8%",
+      flexWrap: "wrap",
+      background: "#ffffff",
+    }}>
+      <Accodion
+        width={320}
+        onChange={(item) => console.log("Selected:", item.label)}
+      />
+    </div>
+
     <ProdactShowcase title="Popular Categories" dataPass={allCat}/>
     <ProdactShowcase title="Popular Products"  dataPass={allpro}/>
     <Timer/>

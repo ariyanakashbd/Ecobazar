@@ -124,8 +124,6 @@ const NavBer = () => {
               <li className='hidden lg:block'>
                 <Link className='text-[#808080] hover:text-white' to="#">Contact Us</Link>
               </li>
-
-              {/* Desktop hover dropdowns - lg-only */}
               {homeDrop && (
                 <div className='hidden lg:block bg-[#ffffff] font-pop text-sm text-[#000000] border-2 w-15 absolute top-15 z-10 left-80 text-center'>
                   <ul>
@@ -169,9 +167,8 @@ const NavBer = () => {
             <Link className='flex items-center gap-x-2' to='tel:2195550114'><FiPhoneCall /> (219) 555-0114</Link>
           </div>
 
-          {/* All Categories hover dropdown panel - lg-only */}
           {open && (
-            <div className='hidden lg:block absolute bg-white text-black font-pop text-bold p-2 top-50 left-29.25 border border-[#333333] w-51.5 z-50'>
+            <div className='hidden lg:block absolute bg-white text-black font-pop text-bold p-2 top-16 left-16 border border-[#333333] w-51.5 z-50'>
               <ul>
                 {categoryList.map((cat) => (
                   <li key={cat.label} className='hover:bg-primry p-2'>
