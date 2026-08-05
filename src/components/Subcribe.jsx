@@ -1,5 +1,4 @@
-import React from 'react'
-import Container from './layouts/Container';
+﻿import Container from './layouts/Container';
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa";

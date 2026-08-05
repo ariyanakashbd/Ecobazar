@@ -1,5 +1,4 @@
-import React from 'react'
-import Container from './Container'
+﻿import Container from './Container'
 import popular1 from '../../assets/popular1.webp'
 import { Link } from 'react-router'
 import { IoIosArrowRoundForward } from "react-icons/io"

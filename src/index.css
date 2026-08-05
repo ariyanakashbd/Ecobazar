@@ -129,7 +129,7 @@
   color: #999 !important;
   cursor: not-allowed;
 }
-label{
+/* label{
   position: relative;
   padding-left: 25px;
 }
@@ -159,4 +159,30 @@ input:checked + label::before{
 }
 input:checked + label::after{
   border:2px solid #00B207;
+} */
+
+.price-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  pointer-events: none;
+}
+.price-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: auto;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #4CAF50; 
+  cursor: pointer;
+}
+.price-thumb::-moz-range-thumb {
+  pointer-events: auto;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #4CAF50;
+  cursor: pointer;
 }

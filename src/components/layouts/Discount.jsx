@@ -1,5 +1,4 @@
-import React from 'react'
-import discountBanner from '../../assets/discount-banner.webp';
+﻿import discountBanner from '../../assets/discount-banner.webp';
 import { Link } from 'react-router';
 import Container from './Container';
 const Discount = () => {

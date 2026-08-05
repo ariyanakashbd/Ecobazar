@@ -1,5 +1,4 @@
-import React from 'react'
-import Container from './Container'
+﻿import Container from './Container'
 import latestone from '../../assets/latestone.webp';
 import latesttwo from '../../assets/latesttwo.webp';
 import latestthree from '../../assets/latestthree.webp';

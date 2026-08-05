@@ -1,5 +1,4 @@
-import React from 'react'
-import Container from './layouts/Container'
+﻿import Container from './layouts/Container'
 import logo from '../../src/assets/Logo.webp'
 import freme from '../../src/assets/Frame 142.webp'
 import { Link } from 'react-router'

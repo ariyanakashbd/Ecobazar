@@ -1,5 +1,4 @@
-import React from 'react'
-import { Outlet } from 'react-router'
+﻿import { Outlet } from 'react-router'
 import TopBer from '../layouts/TopBer'
 import SearchBar from './SearchBar'
 import NavBer from '../NavBer'

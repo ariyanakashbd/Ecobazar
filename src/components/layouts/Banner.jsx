@@ -1,8 +1,7 @@
-import React from 'react'
-import Container from './Container'
+﻿import Container from './Container'
 import BannerBig from '../../assets/Bannar Big.webp';
 import BannerSmall from '../../assets/Bannar (1).webp';
-import BannerSmallTwo from '../../assets/Bannar.webp';
+import BannerSmallTwo from '../../assets/discount-banner.webp';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation,Pagination,Scrollbar,Autoplay } from 'swiper/modules';
 import 'swiper/css';

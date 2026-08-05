@@ -1,5 +1,4 @@
-import React from 'react';
-import Container from './Container';
+﻿import Container from './Container';
 import Logo from "../../assets/Logo1.webp";
 import { IoSearch } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";

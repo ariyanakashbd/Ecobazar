@@ -1,8 +1,8 @@
-import Container from './Container';
+﻿import Container from './Container';
 import timer from '../../assets/timer.webp';
 import timerTwo from '../../assets/timer3.webp';
 import timerThree from '../../assets/timer2.webp';
-import React, { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 
 const Timer = () => {
   const [time, setTime] = useState({
