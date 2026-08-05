@@ -9,7 +9,6 @@ import LatestNews from '../components/layouts/LatestNews'
 import CompanyName from '../components/layouts/CompanyName'
 import Accodion from '../components/Accodion'
 
-
 const Home = () => {
   let [allpro , setAllPro] = useState([]);
   let [allCat , setAllCat] = useState([]);

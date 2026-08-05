@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import Container from '../components/layouts/Container'
 import Accodion, { AccordionItem, PriceRange } from '../components/Accodion';
 import { FaAngleDown } from "react-icons/fa6";
@@ -6,6 +6,9 @@ import bannerShop from '../assets/aaaa.webp';
 import prodact from '../assets/Product.webp';
 import prodactOne from '../assets/ProductOne.webp';
 import prodactTwo from '../assets/ProductTwo.webp';
+import axios from 'axios';
+import { RiShoppingBagLine } from "react-icons/ri";
+
 
 
 const categories = [
@@ -23,10 +26,19 @@ const ratings = [5, 4, 3, 2, 1];
 const tags = ["Healthy", "Low fat", "Vegetarian", "Kid foods", "Vitamins", "Bread", "Meat", "Snacks", "Tifin", "Launch", "Dinner", "Breakfast", "Fruit"];
 
 const Shop = () => {
-  const [activeCategory, setActiveCategory] = useState("cat2"); // Vegetables selected
+  const [activeCategory, setActiveCategory] = useState("cat2"); 
   const [price, setPrice] = useState([50, 1500]);
   const [activeRating, setActiveRating] = useState(4);
   const [activeTags, setActiveTags] = useState(["Low fat", "Meat"]);
+  const [shop, setshop] = useState([]);
+
+  useEffect(()=>{
+  async function allData () {
+      let proData = await axios.get('https://dummyjson.com/products')
+      setshop(proData.data.products.slice(0,15)); 
+    }
+    allData()
+  },[])
 
   const toggleTag = (tag) => {
     setActiveTags((prev) =>
@@ -36,8 +48,8 @@ const Shop = () => {
 
   return (
     <Container>
-      <div>
-        <div className='flex justify-between mt-11 font-pop items-center'>
+            {/* fillter start */}
+           <div className='flex justify-between mt-11 font-pop items-center'>
           <div className='font-pop text-[14px] font-semibold text-[#ffff] bg-primry py-3.5 px-8 rounded-[43px]'>Filter</div>
           <div className='flex items-center text-sm gap-x-5'>
             <span className='text-[#808080]'>Sort by:</span>
@@ -49,8 +61,12 @@ const Shop = () => {
             <span className='font-pop font-semibold text-[16px] text-[#1A1A1A]'>52</span> Results Found
           </div>
         </div>
+        {/* fillter end */}
 
-        <Accodion title="All Categories">
+        <div className='flex'>
+          {/* price start */}
+          <div className='w-[25%]'>
+          <Accodion title="All Categories">
           {categories.map((c) => (
             <AccordionItem
               key={c.id}
@@ -83,7 +99,7 @@ const Shop = () => {
         </Accodion>
 
         <Accodion title="Popular Tag">
-          <div className='flex flex-wrap'>
+          <div className='flex flex-wrap '>
             {tags.map((tag) => (
               <AccordionItem
                 key={tag}
@@ -106,7 +122,38 @@ const Shop = () => {
               <img  className="hover:border hover:border-primry rounded-[5px] mb-4 " src={prodactTwo} alt="prodactTwo" />
             </div>
           </div>
-      </div>
+          </div>
+          {/* price end */}
+          {/* product start */}
+          <div className='ml-6 font-pop '>
+           <div className="grid grid-cols-3 gap-6 mt-6">
+            {shop.map((item) => (
+              <div key={item.id} className="border border-[#cccc] rounded-lg p-4 relative">
+                <img
+                  src={item.thumbnail}
+                  alt={item.title}
+                  className="w-full h-48 object-cover"
+                />
+
+                <h3 className="mt-3 font-semibold">
+                  {item.title}
+                </h3>
+
+                <p className="">
+                  ${item.price}
+                </p>
+               <div className='absolute bottom-7 right-7.5 text-[24px]'>
+                 <RiShoppingBagLine />
+               </div>
+              </div>
+            ))}
+            <div>
+            </div>
+          </div>
+          </div>
+           {/* product end */}
+        </div>
+
     </Container>
   )
 }
