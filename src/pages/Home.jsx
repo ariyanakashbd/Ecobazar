@@ -34,7 +34,7 @@ const Home = () => {
   useEffect(()=>{
   async function allData () {
       let proData = await axios.get('https://dummyjson.com/products')
-      setHotDeals(proData.data.products.slice(0, 15));
+      setHotDeals(proData.data.products.slice(0, 12));
       
     }
     allData()

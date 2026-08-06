@@ -60,10 +60,10 @@ const Banner = () => {
             slidesPerView={1}
             modules={[ Autoplay]}
             >
-            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerSmallTwo} alt="BannerSmall" /></SwiperSlide>
-            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerSmallTwo} alt="BannerSmall" /></SwiperSlide>
-            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerSmallTwo} alt="BannerSmall" /></SwiperSlide>
-            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerSmallTwo} alt="BannerSmall" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerBig} alt="BannerSmall" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerBig} alt="BannerSmall" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerBig} alt="BannerSmall" /></SwiperSlide>
+            <SwiperSlide><img className='w-full h-auto rounded-xl' src={BannerBig} alt="BannerSmall" /></SwiperSlide>
             </Swiper>
             <div className='mt-4'>
               <div>

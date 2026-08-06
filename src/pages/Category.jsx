@@ -1,5 +1,5 @@
 ﻿import axios from 'axios';
-import {  } from 'react'
+import { useEffect, useState } from 'react'
 import ProdactShowcase from '../components/layouts/ProdactShowcase';
 
 const Category = () => {
