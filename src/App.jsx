@@ -7,6 +7,7 @@ import Forgot from "./pages/Forgot";
 import Reset from "./pages/Reset";
 import Category from "./pages/Category";
 import Shop from "./pages/Shop";
+import Details from "./pages/Details";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/Reset" element={<Reset/>}/>
           <Route path="/cat" element={<Category/>}/>
           <Route path="/shop" element={<Shop/>}/>
+          <Route path="/details" element={<Details/>}/>
         </Route>
       </Routes>
     </>
