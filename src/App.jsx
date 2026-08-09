@@ -8,6 +8,7 @@ import Reset from "./pages/Reset";
 import Category from "./pages/Category";
 import Shop from "./pages/Shop";
 import Details from "./pages/Details";
+import Cart from "./pages/Cart";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/cat" element={<Category/>}/>
           <Route path="/shop" element={<Shop/>}/>
           <Route path="/details" element={<Details/>}/>
+          <Route path="/cart" element={<Cart/>}/>
         </Route>
       </Routes>
     </>

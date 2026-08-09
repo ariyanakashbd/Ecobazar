@@ -1,7 +1,12 @@
-﻿
+﻿import Container from "../components/layouts/Container"
+
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <>
+     <Container>
+        <h1>fd</h1>
+     </Container>
+    </>
   )
 }
 
