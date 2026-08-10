@@ -9,6 +9,7 @@ import Category from "./pages/Category";
 import Shop from "./pages/Shop";
 import Details from "./pages/Details";
 import Cart from "./pages/Cart";
+import Chakout from "./pages/Chakout";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/shop" element={<Shop/>}/>
           <Route path="/details" element={<Details/>}/>
           <Route path="/cart" element={<Cart/>}/>
+          <Route path="/chakout" element={<Chakout/>}/>
         </Route>
       </Routes>
     </>
