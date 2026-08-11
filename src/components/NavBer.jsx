@@ -63,6 +63,16 @@ const NavBer = () => {
   useOutsiteClick(sidebarRef, () => setSidebar(false), sidebar);
   useOutsiteClick(navMenuRef, () => setNavMenu(false), navMenu);
 
+  // Nav dropdown (Home/Shop/Pages/Blog) gulor jonno akta common hover handler -
+  // je jeta hover hocche shudhu shetake true kore, baki shob gulo ke false kore dey,
+  // tai akta hover korle onno gula r "stuck open" hoye thake na
+  const handleNavHover = (which) => {
+    setHomeDrop(which === "home");
+    setShopDrop(which === "shop");
+    setPagesDrop(which === "pages");
+    setBlogDrop(which === "blog");
+  };
+
   return (
     <div
       onMouseLeave={() => { setPagesDrop(false); setBlogDrop(false); }}
@@ -106,16 +116,16 @@ const NavBer = () => {
               </li>
 
               {/* Desktop nav links - choto device a hidden, lg thake dekha jabe */}
-              <li onMouseEnter={() => setHomeDrop(!homeDrop)} ref={homeDropReff} className='hidden lg:block'>
+              <li onMouseEnter={() => handleNavHover("home")} ref={homeDropReff} className='hidden lg:block'>
                 <Link className='flex items-center gap-x-1 text-[#808080] hover:text-white ml-26' to="#">Home <FaAngleDown /></Link>
               </li>
-              <li onMouseEnter={() => setShopDrop(!shopDrop)} ref={shopDropReff} className='hidden lg:block'>
+              <li onMouseEnter={() => handleNavHover("shop")} ref={shopDropReff} className='hidden lg:block'>
                 <Link className='flex items-center gap-x-1 text-[#808080] hover:text-white' to="#">Shop <FaAngleDown /></Link>
               </li>
-              <li onMouseEnter={() => setPagesDrop(!pagesDrop)} ref={pagesDropReff} className='hidden lg:block'>
+              <li onMouseEnter={() => handleNavHover("pages")} ref={pagesDropReff} className='hidden lg:block'>
                 <Link className='flex items-center gap-x-1 text-[#808080] hover:text-white' to="#">Pages <FaAngleDown /></Link>
               </li>
-              <li onMouseEnter={() => setBlogDrop(!blogDrop)} ref={blogDropReff} className='hidden lg:block'>
+              <li onMouseEnter={() => handleNavHover("blog")} ref={blogDropReff} className='hidden lg:block'>
                 <Link className='flex items-center gap-x-1 text-[#808080] hover:text-white' to="#">Blog <FaAngleDown /></Link>
               </li>
               <li className='hidden lg:block'>
@@ -200,7 +210,7 @@ const NavBer = () => {
         >
           <div className='flex items-center justify-between mb-6'>
             <h2 className="text-xl font-bold">All Categories</h2>
-            {/* Close icon - choto & boro dutu device a e sidebar close korbe */}
+           
             <button
               onClick={() => setSidebar(false)}
               className='text-2xl cursor-pointer p-1 hover:text-primry'
