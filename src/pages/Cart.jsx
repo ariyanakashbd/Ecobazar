@@ -1,5 +1,5 @@
-﻿import { useState, useMemo } from "react"
-import { useNavigate } from "react-router" // React Router v7 ব্যবহার করলে 'react-router', না হলে 'react-router-dom' লিখুন
+import { useState, useMemo } from "react"
+import { useNavigate } from "react-router-dom"
 import { Minus, Plus, X } from "lucide-react"
 import Container from "../components/layouts/Container"
 import red from '../assets/daitels/red.webp'

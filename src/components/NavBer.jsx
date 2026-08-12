@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Container from './layouts/Container';
 import useOutsiteClick from '../hooks/outsideClick';
 

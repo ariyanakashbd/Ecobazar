@@ -1,5 +1,5 @@
-﻿import discountBanner from '../../assets/discount-banner.webp';
-import { Link } from 'react-router';
+import discountBanner from '../../assets/discount-banner.webp';
+import { Link } from 'react-router-dom';
 import Container from './Container';
 const Discount = () => {
   return (

@@ -1,10 +1,10 @@
-﻿import Container from './layouts/Container';
+import Container from './layouts/Container';
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Subcribe = () => {
   return (

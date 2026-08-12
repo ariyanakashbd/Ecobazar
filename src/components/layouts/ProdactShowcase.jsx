@@ -1,6 +1,6 @@
 import Container from './Container'
 import popular1 from '../../assets/popular1.webp'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import { IoIosArrowRoundForward } from "react-icons/io"
 import { FaStar, FaStarHalfAlt } from "react-icons/fa"
 import { HiOutlineShoppingBag } from "react-icons/hi2";

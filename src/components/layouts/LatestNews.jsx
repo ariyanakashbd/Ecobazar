@@ -1,11 +1,11 @@
-﻿import Container from './Container'
+import Container from './Container'
 import latestone from '../../assets/latestOne.webp';
 import latesttwo from '../../assets/latestTwo.webp';
 import latestthree from '../../assets/latestThree.webp';
 import { FaTag } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { BiMessageAlt } from "react-icons/bi";
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';

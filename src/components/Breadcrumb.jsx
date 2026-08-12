@@ -1,7 +1,7 @@
-﻿import breadcrumb from "../../src/assets/breadcrumbs.webp"
+import breadcrumb from "../../src/assets/breadcrumbs.webp"
 import Container from './layouts/Container'
 import { MdHomeFilled } from "react-icons/md";
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 
 const Breadcrumb = () => {
     let pageName = useLocation();

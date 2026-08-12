@@ -1,9 +1,9 @@
-﻿import Container from './Container';
+import Container from './Container';
 import Logo from "../../assets/Logo1.webp";
 import { IoSearch } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import Heart from '../../icon/Heart';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const SearchBar = () => {
   return (

@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from 'react-router';
+import { Outlet, useLocation } from 'react-router-dom';
 import TopBer from './TopBer'; // ফোল্ডার পাথ অনুযায়ী ঠিক রাখুন
 import SearchBar from './SearchBar';
 import NavBer from '../NavBer';

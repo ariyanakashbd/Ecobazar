@@ -1,5 +1,5 @@
 import Container from '../components/layouts/Container';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { MdOutlineMail } from "react-icons/md";
 
 const Forgot = () => {
