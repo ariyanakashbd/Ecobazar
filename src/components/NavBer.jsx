@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Link } from 'react-router'; // React Router v7 ব্যবহার করলে 'react-router', না হলে 'react-router-dom' লিখুন
+import { Link } from 'react-router';
 import Container from './layouts/Container';
 import useOutsiteClick from '../hooks/outsideClick';
 
@@ -97,6 +97,7 @@ const NavBer = () => {
                   <div className='absolute top-full left-0 bg-[#ffffff] font-pop text-sm text-[#000000] border-2 w-28 text-center z-20 shadow-md'>
                     <ul>
                       <li className='p-2 hover:bg-primry hover:text-white'><Link to="/cart">Cart</Link></li>
+                      <li className='p-2 hover:bg-primry hover:text-white'><Link to="/cart">Cart Details</Link></li>
                       <li className='p-2 hover:bg-primry hover:text-white'><Link to="/details">Details</Link></li>
                       <li className='p-2 hover:bg-primry hover:text-white'><Link to="/chakout">Checkout</Link></li>
                     </ul>
@@ -245,6 +246,9 @@ const NavBer = () => {
                 <ul className='pl-4 bg-gray-50'>
                   <li className='py-2 hover:text-primry'>
                     <Link to="/cart" onClick={() => { setMPagesDrop(false); setNavMenu(false); }}>Cart</Link>
+                  </li>
+                  <li className='py-2 hover:text-primry'>
+                    <Link to="/cart" onClick={() => { setMPagesDrop(false); setNavMenu(false); }}>Cart Details</Link>
                   </li>
                   <li className='py-2 hover:text-primry'>
                     <Link to="/details" onClick={() => { setMPagesDrop(false); setNavMenu(false); }}>Details</Link>
