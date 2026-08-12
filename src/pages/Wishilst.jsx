@@ -1,7 +1,14 @@
-﻿
+﻿import Container from "../components/layouts/Container"
+
 const Wishilst = () => {
   return (
-    <div>Wishilst</div>
+    <div>
+      <Container>
+        <div>
+          hello
+        </div>
+      </Container>
+    </div>
   )
 }
 
