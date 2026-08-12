@@ -1,4 +1,5 @@
 ﻿import { useState, useMemo } from "react"
+import { useNavigate } from "react-router" // React Router v7 ব্যবহার করলে 'react-router', না হলে 'react-router-dom' লিখুন
 import { Minus, Plus, X } from "lucide-react"
 import Container from "../components/layouts/Container"
 import red from '../assets/daitels/red.webp'
@@ -22,6 +23,7 @@ const initialCartItems = [
 ]
 
 const Cart = () => {
+  const navigate = useNavigate()
   const [cartItems, setCartItems] = useState(initialCartItems)
   const [couponCode, setCouponCode] = useState("")
   const [couponMessage, setCouponMessage] = useState(null)
@@ -50,6 +52,10 @@ const Cart = () => {
       type: "error",
       text: `Coupon "${couponCode}" is not valid.`,
     })
+  }
+
+  const handleCheckout = () => {
+    navigate("/chakout")
   }
 
   const subtotal = useMemo(
@@ -242,7 +248,10 @@ const Cart = () => {
                     <span className="text-[#1A1A1A] font-bold">${total.toFixed(2)}</span>
                   </div>
                 </div>
-                <button className="w-full mt-6 py-3 rounded-full bg-primry hover:bg-green-700 text-white font-medium transition">
+                <button
+                  onClick={handleCheckout}
+                  className="w-full mt-6 py-3 rounded-full bg-primry hover:bg-green-700 text-white font-medium transition"
+                >
                   Proceed to checkout
                 </button>
               </div>

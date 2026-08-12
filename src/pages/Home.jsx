@@ -52,20 +52,6 @@ const Home = () => {
     <>
     <Banner/>
     <Costomar/>
-
-    <div style={{
-      display: "flex",
-      gap: 32,
-      padding: "40px 8%",
-      flexWrap: "wrap",
-      background: "#ffffff",
-    }}>
-      <Accodion
-        width={320}
-        onChange={(item) => console.log("Selected:", item.label)}
-      />
-    </div>
-
     <ProdactShowcase title="Popular Categories" dataPass={allCat}/>
     <ProdactShowcase title="Popular Products"  dataPass={allpro}/>
     <Timer/>

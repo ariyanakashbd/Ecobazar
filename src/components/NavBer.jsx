@@ -1,11 +1,10 @@
 import { useState, useRef } from 'react';
+import { Link } from 'react-router'; // React Router v7 ব্যবহার করলে 'react-router', না হলে 'react-router-dom' লিখুন
 import Container from './layouts/Container';
-import { Link } from 'react-router';
-import { FaBars } from "react-icons/fa";
-import { FaAngleDown } from "react-icons/fa";
-import { FiPhoneCall } from "react-icons/fi";
 import useOutsiteClick from '../hooks/outsideClick';
-import { FaCarrot } from "react-icons/fa";
+
+import { FaBars, FaAngleDown, FaCarrot } from "react-icons/fa";
+import { FiPhoneCall, FiShoppingCart } from "react-icons/fi";
 import { IoFishOutline, IoClose, IoMenu } from "react-icons/io5";
 import { LiaDrumstickBiteSolid } from "react-icons/lia";
 import { SiBuymeacoffee } from "react-icons/si";
@@ -15,79 +14,34 @@ import { LuIceCreamBowl } from "react-icons/lu";
 import { PiCookingPot } from "react-icons/pi";
 import { GoPlus } from "react-icons/go";
 
-const dropItems = ["Home1", "Home2", "Home3", "Home4"];
-
-const categoryList = [
-  { icon: <FaCarrot />, label: "Fresh Fruit" },
-  { icon: <FaCarrot />, label: "Vegetables" },
-  { icon: <IoFishOutline />, label: "River Fish" },
-  { icon: <LiaDrumstickBiteSolid />, label: "Chicken & Meat" },
-  { icon: <SiBuymeacoffee />, label: "Drink & Water" },
-  { icon: <CgIcecream />, label: "Yogurt & Ice Cream" },
-  { icon: <GiCupcake />, label: "Cake & Bread" },
-  { icon: <LuIceCreamBowl />, label: "Butter & Cream" },
-  { icon: <PiCookingPot />, label: "Cooking" },
-];
-
 const NavBer = () => {
-  let [open, setOpen] = useState(false);
-  let [homeDrop, setHomeDrop] = useState(false);
-  let [shopDrop, setShopDrop] = useState(false);
-  let [pagesDrop, setPagesDrop] = useState(false);
-  let [blogDrop, setBlogDrop] = useState(false);
-  let [sidebar, setSidebar] = useState(false);
-  let [navMenu, setNavMenu] = useState(false); // Home/Shop/Pages/Blog/About/Contact-er alada menu
+  const [open, setOpen] = useState(false);
+  const [pagesDrop, setPagesDrop] = useState(false);
+  const [blogDrop, setBlogDrop] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
+  const [navMenu, setNavMenu] = useState(false);
 
-  // Mobile drawer-er accordion-er jonno alada state - desktop hover state theke completely alada,
-  // tai outside-click hook desktop-er sathe conflict korbe na ar close thik moto kaj korbe
-  let [mHomeDrop, setMHomeDrop] = useState(false);
-  let [mShopDrop, setMShopDrop] = useState(false);
-  let [mPagesDrop, setMPagesDrop] = useState(false);
-  let [mBlogDrop, setMBlogDrop] = useState(false);
+  const [mPagesDrop, setMPagesDrop] = useState(false);
+  const [mBlogDrop, setMBlogDrop] = useState(false);
 
-  let allcatagoryDrop = useRef(null);
-  let homeDropReff = useRef(null);
-  let shopDropReff = useRef(null);
-  let pagesDropReff = useRef(null);
-  let blogDropReff = useRef(null);
-  let sidebarRef = useRef(null);
-  let navMenuRef = useRef(null);
+  const allcatagoryDrop = useRef(null);
+  const sidebarRef = useRef(null);
+  const navMenuRef = useRef(null);
 
   useOutsiteClick(allcatagoryDrop, () => setOpen(false), open);
-  useOutsiteClick(homeDropReff, () => setHomeDrop(false), homeDrop);
-  useOutsiteClick(shopDropReff, () => setShopDrop(false), shopDrop);
-  useOutsiteClick(pagesDropReff, () => setPagesDrop(false), pagesDrop);
-  useOutsiteClick(blogDropReff, () => setBlogDrop(false), blogDrop);
-  // sidebar akhon close icon diye o close kora jabe, tobuo outside click rekhe dilam
   useOutsiteClick(sidebarRef, () => setSidebar(false), sidebar);
   useOutsiteClick(navMenuRef, () => setNavMenu(false), navMenu);
 
-  // Nav dropdown (Home/Shop/Pages/Blog) gulor jonno akta common hover handler -
-  // je jeta hover hocche shudhu shetake true kore, baki shob gulo ke false kore dey,
-  // tai akta hover korle onno gula r "stuck open" hoye thake na
-  const handleNavHover = (which) => {
-    setHomeDrop(which === "home");
-    setShopDrop(which === "shop");
-    setPagesDrop(which === "pages");
-    setBlogDrop(which === "blog");
-  };
-
   return (
-    <div
-      onMouseLeave={() => { setPagesDrop(false); setBlogDrop(false); }}
-      className='bg-[#0e0d0d] w-full mt-5 text-white font-pop'
-    >
+    <div className='bg-[#0e0d0d] w-full mt-5 text-white font-pop'>
       <Container>
         <nav
-          onMouseLeave={() => { setOpen(false); setShopDrop(false); setHomeDrop(false); setBlogDrop(false); }}
+          onMouseLeave={() => setOpen(false)}
           className='flex justify-between items-center relative py-3 lg:py-0'
         >
           <div className='flex items-center w-full lg:w-auto'>
-            <ul
-              onMouseLeave={() => { setHomeDrop(false); setBlogDrop(false); }}
-              className='flex gap-x-3 lg:gap-x-8 items-center text-sm font-pop relative w-full lg:w-auto justify-between lg:justify-start'
-            >
-              {/* Hamburger icon - shudhu "All Categories" er jonno, shob device a thakbe */}
+            <ul className='flex gap-x-3 lg:gap-x-8 items-center text-sm font-pop relative w-full lg:w-auto justify-between lg:justify-start'>
+              {/* Hamburger Icon */}
               <li
                 onClick={() => setSidebar(!sidebar)}
                 className='p-3 lg:p-4 bg-primry lg:mr-30 text-[24px] lg:text-[32px] cursor-pointer'
@@ -95,7 +49,7 @@ const NavBer = () => {
                 <FaBars />
               </li>
 
-              {/* Alada Menu icon - shudhu Home/Shop/Pages/Blog/About/Contact er jonno, shudhu choto device a (lg:hidden) dekha jabe */}
+              {/* Mobile Menu Icon */}
               <li
                 onClick={() => setNavMenu(!navMenu)}
                 className='lg:hidden p-3 text-[24px] cursor-pointer'
@@ -103,97 +57,117 @@ const NavBer = () => {
                 <IoMenu />
               </li>
 
-              {/* All Categories - choto device a hidden, boro (lg) device a show */}
+              {/* All Categories Desktop */}
               <li
                 onMouseEnter={() => setOpen(!open)}
                 ref={allcatagoryDrop}
-                className='hidden lg:block font-bold absolute bg-[#333333] top-0 left-[64px] p-5.5'
+                className='hidden lg:block font-bold absolute bg-[#333333] top-0 left-[64px] p-5.5 cursor-pointer'
               >
-                <Link className='flex items-center gap-x-1 mr-17' to="#">
+                <div className='flex items-center gap-x-1 mr-17'>
                   All Categories <FaAngleDown className='absolute right-5.5' />
+                </div>
+              </li>
+
+              {/* Home */}
+              <li className='hidden lg:block'>
+                <Link to="/" className='text-[#808080] hover:text-white ml-26'>
+                  Home
                 </Link>
               </li>
 
-              {/* Desktop nav links - choto device a hidden, lg thake dekha jabe */}
-              <li onMouseEnter={() => handleNavHover("home")} ref={homeDropReff} className='hidden lg:block'>
-                <Link className='flex items-center gap-x-1 text-[#808080] hover:text-white ml-26' to="#">Home <FaAngleDown /></Link>
-              </li>
-              <li onMouseEnter={() => handleNavHover("shop")} ref={shopDropReff} className='hidden lg:block'>
-                <Link className='flex items-center gap-x-1 text-[#808080] hover:text-white' to="#">Shop <FaAngleDown /></Link>
-              </li>
-              <li onMouseEnter={() => handleNavHover("pages")} ref={pagesDropReff} className='hidden lg:block'>
-                <Link className='flex items-center gap-x-1 text-[#808080] hover:text-white' to="#">Pages <FaAngleDown /></Link>
-              </li>
-              <li onMouseEnter={() => handleNavHover("blog")} ref={blogDropReff} className='hidden lg:block'>
-                <Link className='flex items-center gap-x-1 text-[#808080] hover:text-white' to="#">Blog <FaAngleDown /></Link>
-              </li>
+              {/* Shop */}
               <li className='hidden lg:block'>
-                <Link className='text-[#808080] hover:text-white' to="#">About Us</Link>
+                <Link to="/shop" className='text-[#808080] hover:text-white'>
+                  Shop
+                </Link>
               </li>
+
+
+              {/* Pages Dropdown (trigger + menu in same li, no gap) */}
+              <li
+                onMouseEnter={() => setPagesDrop(true)}
+                onMouseLeave={() => setPagesDrop(false)}
+                className='hidden lg:block relative'
+              >
+                <div className='flex items-center gap-x-1 text-[#808080] hover:text-white cursor-pointer py-4'>
+                  Pages <FaAngleDown />
+                </div>
+
+                {pagesDrop && (
+                  <div className='absolute top-full left-0 bg-[#ffffff] font-pop text-sm text-[#000000] border-2 w-28 text-center z-20 shadow-md'>
+                    <ul>
+                      <li className='p-2 hover:bg-primry hover:text-white'><Link to="/cart">Cart</Link></li>
+                      <li className='p-2 hover:bg-primry hover:text-white'><Link to="/details">Details</Link></li>
+                      <li className='p-2 hover:bg-primry hover:text-white'><Link to="/chakout">Checkout</Link></li>
+                    </ul>
+                  </div>
+                )}
+              </li>
+
+              {/* Blog Dropdown (trigger + menu in same li, no gap) */}
+              <li
+                onMouseEnter={() => setBlogDrop(true)}
+                onMouseLeave={() => setBlogDrop(false)}
+                className='hidden lg:block relative'
+              >
+                <div className='flex items-center gap-x-1 text-[#808080] hover:text-white cursor-pointer py-4'>
+                  Blog <FaAngleDown />
+                </div>
+
+                {blogDrop && (
+                  <div className='absolute top-full left-0 bg-[#ffffff] font-pop text-sm text-[#000000] border-2 w-28 text-center z-20 shadow-md'>
+                    <ul>
+                      <li className='p-2 hover:bg-primry hover:text-white'><Link to="/blog/1">Blog 1</Link></li>
+                      <li className='p-2 hover:bg-primry hover:text-white'><Link to="/blog/2">Blog 2</Link></li>
+                    </ul>
+                  </div>
+                )}
+              </li>
+
               <li className='hidden lg:block'>
-                <Link className='text-[#808080] hover:text-white' to="#">Contact Us</Link>
+                <Link to="/about" className='text-[#808080] hover:text-white'>About Us</Link>
               </li>
-              {homeDrop && (
-                <div className='hidden lg:block bg-[#ffffff] font-pop text-sm text-[#000000] border-2 w-15 absolute top-15 z-10 left-80 text-center'>
-                  <ul>
-                    {dropItems.map((item) => (
-                      <Link to="#" key={item}><li className='mt-2 hover:bg-primry last:mb-2'>{item}</li></Link>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {shopDrop && (
-                <div className='hidden lg:block bg-[#ffffff] font-pop text-sm text-[#000000] border-2 w-15 absolute top-15 right-88 text-center z-30'>
-                  <ul>
-                    {dropItems.map((item) => (
-                      <Link to="#" key={item}><li className='mt-2 hover:bg-primry last:mb-2'>{item}</li></Link>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {pagesDrop && (
-                <div className='hidden lg:block bg-[#ffffff] font-pop text-sm text-[#000000] border-2 w-15 absolute top-15 right-67 text-center z-20'>
-                  <ul>
-                    {dropItems.map((item) => (
-                      <Link to="#" key={item}><li className='mt-2 hover:bg-primry last:mb-2'>{item}</li></Link>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {blogDrop && (
-                <div className='hidden lg:block bg-[#ffffff] font-pop text-sm text-[#000000] border-2 w-15 absolute top-15 right-45 text-center z-40'>
-                  <ul>
-                    {dropItems.map((item) => (
-                      <Link to="#" key={item}><li className='mt-2 hover:bg-primry last:mb-2'>{item}</li></Link>
-                    ))}
-                  </ul>
-                </div>
-              )}
+
+              <li className='hidden lg:block'>
+                <Link to="/contact" className='text-[#808080] hover:text-white'>Contact Us</Link>
+              </li>
             </ul>
           </div>
 
-          <div className='hidden lg:flex items-center'>
-            <Link className='flex items-center gap-x-2' to='tel:2195550114'><FiPhoneCall /> (219) 555-0114</Link>
+          {/* Right side - Phone & Cart Icon */}
+          <div className='hidden lg:flex items-center gap-x-6'>
+            <a href='tel:2195550114' className='flex items-center gap-x-2 text-sm hover:text-primry'>
+              <FiPhoneCall /> (219) 555-0114
+            </a>
+
+            {/* Cart Icon Link */}
+            <Link to="/cart" className='flex items-center gap-x-2 bg-primry text-white px-4 py-2 rounded hover:opacity-90 transition-all'>
+              <FiShoppingCart className='text-lg' />
+              <span className='font-medium text-sm'>Cart</span>
+            </Link>
           </div>
 
+          {/* Desktop Categories Dropdown */}
           {open && (
             <div className='hidden lg:block absolute bg-white text-black font-pop text-bold p-2 top-16 left-16 border border-[#333333] w-51.5 z-50'>
               <ul>
-                {categoryList.map((cat) => (
-                  <li key={cat.label} className='hover:bg-primry p-2'>
-                    <Link to="#" className='flex gap-x-1 items-center'>{cat.icon}{cat.label}</Link>
-                  </li>
-                ))}
-                <li className='hover:bg-primry p-2'>
-                  <Link to="#" className='flex gap-x-1 items-center'><GoPlus />View all Category</Link>
-                </li>
+                <li className='hover:bg-primry p-2'><Link to="/cat" className='flex gap-x-1 items-center'><FaCarrot />Fresh Fruit</Link></li>
+                <li className='hover:bg-primry p-2'><Link to="/cat" className='flex gap-x-1 items-center'><FaCarrot />Vegetables</Link></li>
+                <li className='hover:bg-primry p-2'><Link to="/cat" className='flex gap-x-1 items-center'><IoFishOutline />River Fish</Link></li>
+                <li className='hover:bg-primry p-2'><Link to="/cat" className='flex gap-x-1 items-center'><LiaDrumstickBiteSolid />Chicken & Meat</Link></li>
+                <li className='hover:bg-primry p-2'><Link to="/cat" className='flex gap-x-1 items-center'><SiBuymeacoffee />Drink & Water</Link></li>
+                <li className='hover:bg-primry p-2'><Link to="/cat" className='flex gap-x-1 items-center'><CgIcecream />Yogurt & Ice Cream</Link></li>
+                <li className='hover:bg-primry p-2'><Link to="/cat" className='flex gap-x-1 items-center'><GiCupcake />Cake & Bread</Link></li>
+                <li className='hover:bg-primry p-2'><Link to="/cat" className='flex gap-x-1 items-center'><LuIceCreamBowl />Butter & Cream</Link></li>
+                <li className='hover:bg-primry p-2'><Link to="/cat" className='flex gap-x-1 items-center'><PiCookingPot />Cooking</Link></li>
+                <li className='hover:bg-primry p-2'><Link to="/cat" className='flex gap-x-1 items-center'><GoPlus />View all Category</Link></li>
               </ul>
             </div>
           )}
         </nav>
       </Container>
 
-      {/* Dark overlay - jekono drawer (categories sidebar ba nav menu) khola thakle dim overlay dekhabe, click e o close hoy */}
+      {/* Overlay */}
       {(sidebar || navMenu) && (
         <div
           onClick={() => { setSidebar(false); setNavMenu(false); }}
@@ -201,7 +175,7 @@ const NavBer = () => {
         />
       )}
 
-      {/* Categories Sidebar - shudhu "All Categories" list, left theke slide kore */}
+      {/* Categories Sidebar Drawer */}
       <div ref={sidebarRef}>
         <div
           className={`fixed z-50 top-0 left-0 h-full w-[85%] sm:w-100 max-w-100 transition-all duration-300 ease-in-out bg-white border border-[#E5E5E5] shadow-2xl shadow-black text-black p-5 overflow-y-auto
@@ -209,7 +183,6 @@ const NavBer = () => {
         >
           <div className='flex items-center justify-between mb-6'>
             <h2 className="text-xl font-bold">All Categories</h2>
-           
             <button
               onClick={() => setSidebar(false)}
               className='text-2xl cursor-pointer p-1 hover:text-primry'
@@ -220,19 +193,16 @@ const NavBer = () => {
           </div>
 
           <ul className="space-y-2">
-            {categoryList.map((cat) => (
-              <li key={cat.label} className='hover:bg-primry p-2'>
-                <Link to="#" className='flex gap-x-1 items-center'>{cat.icon}{cat.label}</Link>
-              </li>
-            ))}
-            <li className='hover:bg-primry p-2'>
-              <Link to="#" className='flex gap-x-1 items-center'><GoPlus />View all Category</Link>
-            </li>
+            <li className='hover:bg-primry p-2'><Link to="/cat" onClick={() => setSidebar(false)} className='flex gap-x-1 items-center'><FaCarrot />Fresh Fruit</Link></li>
+            <li className='hover:bg-primry p-2'><Link to="/cat" onClick={() => setSidebar(false)} className='flex gap-x-1 items-center'><FaCarrot />Vegetables</Link></li>
+            <li className='hover:bg-primry p-2'><Link to="/cat" onClick={() => setSidebar(false)} className='flex gap-x-1 items-center'><IoFishOutline />River Fish</Link></li>
+            <li className='hover:bg-primry p-2'><Link to="/cat" onClick={() => setSidebar(false)} className='flex gap-x-1 items-center'><LiaDrumstickBiteSolid />Chicken & Meat</Link></li>
+            <li className='hover:bg-primry p-2'><Link to="/cat" onClick={() => setSidebar(false)} className='flex gap-x-1 items-center'><SiBuymeacoffee />Drink & Water</Link></li>
           </ul>
         </div>
       </div>
 
-      {/* Nav Menu Drawer - shudhu Home/Shop/Pages/Blog/About/Contact, right theke slide kore, dropdown soho */}
+      {/* Mobile Nav Menu Drawer */}
       <div ref={navMenuRef}>
         <div
           className={`fixed z-50 top-0 right-0 h-full w-[85%] sm:w-100 max-w-100 transition-all duration-300 ease-in-out bg-white border border-[#E5E5E5] shadow-2xl shadow-black text-black p-5 overflow-y-auto
@@ -240,9 +210,8 @@ const NavBer = () => {
         >
           <div className='flex items-center justify-between mb-6'>
             <h2 className="text-xl font-bold">Menu</h2>
-            {/* Close icon - ei menu drawer take close korbe */}
             <button
-              onClick={() => { setNavMenu(false); setMHomeDrop(false); setMShopDrop(false); setMPagesDrop(false); setMBlogDrop(false); }}
+              onClick={() => { setNavMenu(false); setMPagesDrop(false); setMBlogDrop(false); }}
               className='text-2xl cursor-pointer p-1 hover:text-primry'
               aria-label="Close menu"
             >
@@ -251,36 +220,22 @@ const NavBer = () => {
           </div>
 
           <ul className='space-y-1'>
-            <li>
-              <div onClick={() => setMHomeDrop(!mHomeDrop)} className='flex justify-between items-center p-2 cursor-pointer hover:bg-gray-100'>
-                <span>Home</span>
-                <FaAngleDown className={`transition-transform ${mHomeDrop ? "rotate-180" : ""}`} />
-              </div>
-              {mHomeDrop && (
-                <ul className='pl-4 bg-gray-50'>
-                  {dropItems.map((item) => (
-                    <Link to="#" key={item} onClick={() => setMHomeDrop(false)}>
-                      <li className='py-2 hover:text-primry'>{item}</li>
-                    </Link>
-                  ))}
-                </ul>
-              )}
+            <li className='p-2 hover:bg-gray-100'>
+              <Link to="/" onClick={() => setNavMenu(false)}>Home</Link>
             </li>
-            <li>
-              <div onClick={() => setMShopDrop(!mShopDrop)} className='flex justify-between items-center p-2 cursor-pointer hover:bg-gray-100'>
-                <span>Shop</span>
-                <FaAngleDown className={`transition-transform ${mShopDrop ? "rotate-180" : ""}`} />
-              </div>
-              {mShopDrop && (
-                <ul className='pl-4 bg-gray-50'>
-                  {dropItems.map((item) => (
-                    <Link to="#" key={item} onClick={() => setMShopDrop(false)}>
-                      <li className='py-2 hover:text-primry'>{item}</li>
-                    </Link>
-                  ))}
-                </ul>
-              )}
+
+            <li className='p-2 hover:bg-gray-100'>
+              <Link to="/shop" onClick={() => setNavMenu(false)}>Shop</Link>
             </li>
+
+            {/* Direct Cart Link for Mobile */}
+            <li className='p-2 hover:bg-gray-100 font-semibold text-primry'>
+              <Link to="/cart" onClick={() => setNavMenu(false)} className='flex items-center gap-x-2'>
+                <FiShoppingCart /> Cart
+              </Link>
+            </li>
+
+            {/* Pages (Mobile Dropdown) - Cart & Details links here */}
             <li>
               <div onClick={() => setMPagesDrop(!mPagesDrop)} className='flex justify-between items-center p-2 cursor-pointer hover:bg-gray-100'>
                 <span>Pages</span>
@@ -288,14 +243,20 @@ const NavBer = () => {
               </div>
               {mPagesDrop && (
                 <ul className='pl-4 bg-gray-50'>
-                  {dropItems.map((item) => (
-                    <Link to="#" key={item} onClick={() => setMPagesDrop(false)}>
-                      <li className='py-2 hover:text-primry'>{item}</li>
-                    </Link>
-                  ))}
+                  <li className='py-2 hover:text-primry'>
+                    <Link to="/cart" onClick={() => { setMPagesDrop(false); setNavMenu(false); }}>Cart</Link>
+                  </li>
+                  <li className='py-2 hover:text-primry'>
+                    <Link to="/details" onClick={() => { setMPagesDrop(false); setNavMenu(false); }}>Details</Link>
+                  </li>
+                  <li className='py-2 hover:text-primry'>
+                    <Link to="/chakout" onClick={() => { setMPagesDrop(false); setNavMenu(false); }}>Checkout</Link>
+                  </li>
                 </ul>
               )}
             </li>
+
+            {/* Blog (Mobile Dropdown) */}
             <li>
               <div onClick={() => setMBlogDrop(!mBlogDrop)} className='flex justify-between items-center p-2 cursor-pointer hover:bg-gray-100'>
                 <span>Blog</span>
@@ -303,21 +264,22 @@ const NavBer = () => {
               </div>
               {mBlogDrop && (
                 <ul className='pl-4 bg-gray-50'>
-                  {dropItems.map((item) => (
-                    <Link to="#" key={item} onClick={() => setMBlogDrop(false)}>
-                      <li className='py-2 hover:text-primry'>{item}</li>
-                    </Link>
-                  ))}
+                  <li className='py-2 hover:text-primry'><Link to="/" onClick={() => { setMBlogDrop(false); setNavMenu(false); }}>Blog 1</Link></li>
                 </ul>
               )}
             </li>
-            <li className='p-2 hover:bg-gray-100'><Link to="#">About Us</Link></li>
-            <li className='p-2 hover:bg-gray-100'><Link to="#">Contact Us</Link></li>
+
+            <li className='p-2 hover:bg-gray-100'>
+              <Link to="/about" onClick={() => setNavMenu(false)}>About Us</Link>
+            </li>
+            <li className='p-2 hover:bg-gray-100'>
+              <Link to="/contact" onClick={() => setNavMenu(false)}>Contact Us</Link>
+            </li>
           </ul>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default NavBer;

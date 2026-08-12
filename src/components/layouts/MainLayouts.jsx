@@ -1,28 +1,26 @@
-import { Outlet } from 'react-router'
-import TopBer from '../layouts/TopBer'
-import SearchBar from './SearchBar'
-import NavBer from '../NavBer'
-import Footer from '../Footer'
-import Subcribe from '../Subcribe'
-import Breadcrumb from '../Breadcrumb'
-import { useLocation } from 'react-router'
-
+import { Outlet, useLocation } from 'react-router';
+import TopBer from './TopBer'; // ফোল্ডার পাথ অনুযায়ী ঠিক রাখুন
+import SearchBar from './SearchBar';
+import NavBer from '../NavBer';
+import Footer from '../Footer';
+import Subcribe from '../Subcribe';
+import Breadcrumb from '../Breadcrumb';
 
 const MainLayouts = () => {
-  let pageName = useLocation().pathname
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   return (
     <>
-    <TopBer/>
-    <SearchBar/>
-    <NavBer/>
-    {pageName !== '/' && <Breadcrumb/>}
-    <Outlet/>
-    <Subcribe/>
-    <Footer/>
-    
+      <TopBer />
+      <SearchBar />
+      <NavBer />
+      {!isHomePage && <Breadcrumb />}
+      <Outlet />
+      <Subcribe />
+      <Footer />
     </>
-    
-  )
-}
+  );
+};
 
-export default MainLayouts
+export default MainLayouts;

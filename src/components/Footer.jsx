@@ -38,7 +38,7 @@ const Footer = () => {
                 <div className='lg:mt-16.75 text-white font-pop text-[16px] '>
                     <h5>Helps</h5>
                 <ul>
-                   <li className='text-[#999999] mb-3 text-sm hover:text-white mt-5'><Link>Contact</Link></li>
+                   <li className='text-[#999999] mb-3 text-sm hover:text-white mt-5'><Link to="/contact">Contact</Link></li>
                     <li className='text-[#999999] mb-3 text-sm hover:text-white'><Link>Faqs</Link></li>
                     <li className='text-[#999999] mb-3 text-sm hover:text-white'><Link>Terms & Condition</Link></li>
                     <li className='text-[#999999] mb-3 text-sm hover:text-white'><Link>Privacy Policy</Link></li>
@@ -50,8 +50,8 @@ const Footer = () => {
                 <div className='lg:mt-16.75 text-white font-pop text-[16px] '>
                     <h5>Proxy</h5>
                 <ul>
-                    <li className='text-[#999999] mb-3 text-sm hover:text-white mt-5'><Link>About</Link></li>
-                    <li className='text-[#999999] mb-3 text-sm hover:text-white'><Link>Shop</Link></li>
+                    <li className='text-[#999999] mb-3 text-sm hover:text-white mt-5'><Link to="/about">About</Link></li>
+                    <li className='text-[#999999] mb-3 text-sm hover:text-white'><Link to="/shop">Shop</Link></li>
                     <li className='text-[#999999] mb-3 text-sm hover:text-white'><Link>Product</Link></li>
                     <li className='text-[#999999] mb-3 text-sm hover:text-white'><Link>Track Order</Link></li>
                 </ul>

@@ -21,8 +21,8 @@ const Subcribe = () => {
                 type="text"
                 placeholder='Search'
               />
-              <IoSearch className='absolute left-4 top-[43px] lg:top-1/2 -translate-y-1/2 text-2xl text-[#1A1A1A]' />
-              <button className='lg:absolute text-[#FFFFFF] bg-primry px-4 py-2 lg:px-10 lg:py-3.75 rounded-[46px] lg:-right-25 cursor-pointer mb-2'>
+              <IoSearch className='absolute left-4 top-[40px] lg:top-1/2 -translate-y-1/2 text-2xl text-[#1A1A1A]' />
+              <button className='lg:absolute text-[#FFFFFF] bg-primry px-4 py-2 lg:px-10 lg:py-3.75 rounded-[46px] lg:-right-25 cursor-pointer'>
                 Subscribe
               </button>
             </div>

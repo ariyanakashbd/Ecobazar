@@ -8,7 +8,7 @@ const Costomar = () => {
   return (
     <>
     <Container>
-        <div>
+        <div class="drop-shadow-2xl">
             <div className='flex flex-col md:flex-row flex-wrap lg:flex-nowrap justify-between p-6 lg:p-10 shadow-md mx-auto gap-y-6 lg:gap-y-0'>
               <div className='flex items-center gap-x-4 w-full sm:max-w-[306px] mx-auto'>
                 <LiaShippingFastSolid className='text-[40px] flex-shrink-0 text-[#00B207]' />
