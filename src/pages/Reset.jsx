@@ -4,8 +4,8 @@ import { Link } from 'react-router'
 import { FaRegEye,FaRegEyeSlash  } from "react-icons/fa6";
 
 const Reset = () => {
-  let [show , setShow]=useState();
-  let [showTwo , setShowTwo] =useState();
+  const [show, setShow] = useState(false);
+  const [showTwo, setShowTwo] = useState(false);
   return (
     <>
     <Container>
