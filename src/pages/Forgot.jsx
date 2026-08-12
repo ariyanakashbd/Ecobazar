@@ -1,4 +1,3 @@
-﻿import {  } from 'react';
 import Container from '../components/layouts/Container';
 import { Link } from 'react-router';
 import { MdOutlineMail } from "react-icons/md";

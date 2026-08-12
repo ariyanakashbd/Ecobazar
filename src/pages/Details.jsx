@@ -22,7 +22,7 @@ import { MdOutlineDone } from "react-icons/md";
 import feedbackOne from '../assets/daitels/feedbackOne.webp';
 import feedbackTwo from '../assets/daitels/feedbackTwo.webp';
 import feedbackThree from '../assets/daitels/feedbackThree.webp';
-import feedbackFour from '../assets/daitels/feedbackFour.webp';
+import feedbackFour from '../assets/daitels/feedbackfour.webp';
 import axios from 'axios';
 
 const images = [
