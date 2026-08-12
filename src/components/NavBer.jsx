@@ -1,11 +1,10 @@
-﻿import { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Container from './layouts/Container';
 import { Link } from 'react-router';
 import { FaBars } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
 import { FiPhoneCall } from "react-icons/fi";
 import useOutsiteClick from '../hooks/outsideClick';
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { FaCarrot } from "react-icons/fa";
 import { IoFishOutline, IoClose, IoMenu } from "react-icons/io5";
 import { LiaDrumstickBiteSolid } from "react-icons/lia";

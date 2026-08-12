@@ -1,4 +1,4 @@
-﻿import { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Container from './Container';
 import victor from '../../assets/Vector.webp';
 import mango from '../../assets/mango-1.webp';
@@ -7,25 +7,25 @@ import food from '../../assets/food.webp';
 import bookof from '../../assets/bookof.webp';
 import Group1 from '../../assets/Group1.webp';
 import instagram from '../../assets/instagram.webp';
-import instagram2 from '../../assets/instagram2.webp';;
+import instagram2 from '../../assets/instagram2.webp';
 import instagram3 from '../../assets/instagram3.webp';
 import instagram4 from '../../assets/instagram4.webp';
 import instagram5 from '../../assets/instagram5.webp';
 import instagram6 from '../../assets/instagram6.webp';
 import useOutsiteClick from '../../hooks/outsideClick';
-const companyName = () => {
-    let [open, setOpen] = useState(false);
-    let [openTwo, setOpenTwo] = useState(false);
-    let [openThree, setOpenThree] = useState(false);
-    let [openFour, setOpenFour] = useState(false);
-    let [openFive, setOpenFive] = useState(false);
-    let [openSix, setOpenSix] = useState(false);
-    let openRef = useRef(null);
-    let openRefTwo = useRef(null);
-    let openRefThree = useRef(null);
-    let openRefFour = useRef(null);
-    let openRefFive = useRef(null);
-    let openRefSix = useRef(null);
+const CompanyName = () => {
+    const [open, setOpen] = useState(false);
+    const [openTwo, setOpenTwo] = useState(false);
+    const [openThree, setOpenThree] = useState(false);
+    const [openFour, setOpenFour] = useState(false);
+    const [openFive, setOpenFive] = useState(false);
+    const [openSix, setOpenSix] = useState(false);
+    const openRef = useRef(null);
+    const openRefTwo = useRef(null);
+    const openRefThree = useRef(null);
+    const openRefFour = useRef(null);
+    const openRefFive = useRef(null);
+    const openRefSix = useRef(null);
     useOutsiteClick(openRef,()=>setOpen(false),open);
     useOutsiteClick(openRefTwo,()=>setOpenTwo(false),openTwo);
     useOutsiteClick(openRefThree,()=>setOpenThree(false),openThree);
@@ -78,7 +78,7 @@ const companyName = () => {
     ref={openRefTwo}
     onClick={()=>setOpenTwo(false)} className="w-full h-screen fixed top-0 left-0 bg-[#0000007e] z-50 flex justify-center items-center">
     <div
-      onClick={(e)=>setOpenTwo(true)}
+      onClick={()=>setOpenTwo(true)}
       className="flex flex-col items-center gap-4">
       <img src={instagram2}alt="instagram2" className="w-150 h-150"/>
       <button
@@ -93,7 +93,7 @@ const companyName = () => {
     ref={openRefThree}
     onClick={() => setOpenThree(false)} className="w-full h-screen fixed top-0 left-0 bg-[#0000007e] z-50 flex justify-center items-center">
     <div
-      onClick={(e)=>setOpenThree(true)}
+      onClick={()=>setOpenThree(true)}
       className="flex flex-col items-center gap-4">
       <img src={instagram3}alt="instagram3" className="w-150 h-150"/>
       <button
@@ -151,4 +151,4 @@ const companyName = () => {
   )
 }
 
-export default companyName
+export default CompanyName
