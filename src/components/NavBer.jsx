@@ -94,12 +94,11 @@ const NavBer = () => {
                 </div>
 
                 {pagesDrop && (
-                  <div className='absolute top-full left-0 bg-[#ffffff] font-pop text-sm text-[#000000] border-2 w-28 text-center z-20 shadow-md'>
+                  <div className='absolute top-full -left-5 bg-[#ddd8d8fb] font-pop text-sm text-[#000000] rounded-[10px] w-28 text-center z-20 shadow-md'>
                     <ul>
-                      <li className='p-2 hover:bg-primry hover:text-white'><Link to="/cart">Cart</Link></li>
-                      <li className='p-2 hover:bg-primry hover:text-white'><Link to="/cart">Cart Details</Link></li>
-                      <li className='p-2 hover:bg-primry hover:text-white'><Link to="/details">Details</Link></li>
-                      <li className='p-2 hover:bg-primry hover:text-white'><Link to="/chakout">Checkout</Link></li>
+                      <li className='p-2 hover:bg-primry w-[80%] mx-auto mt-2 rounded-[7px] hover:text-white'><Link to="/cart">Cart</Link></li>
+                      <li className='p-2 hover:bg-primry w-[80%] mx-auto mt-2 rounded-[7px] hover:text-white'><Link to="/details">Details</Link></li>
+                      <li className='p-2 hover:bg-primry w-[80%] mx-auto mt-2 rounded-[7px] hover:text-white mb-3'><Link to="/chakout">Checkout</Link></li>
                     </ul>
                   </div>
                 )}
@@ -116,10 +115,10 @@ const NavBer = () => {
                 </div>
 
                 {blogDrop && (
-                  <div className='absolute top-full left-0 bg-[#ffffff] font-pop text-sm text-[#000000] border-2 w-28 text-center z-20 shadow-md'>
+                  <div className='absolute top-full -left-5 bg-[#ddd8d8fb] font-pop text-sm text-[#000000] rounded-[10px] w-28 text-center z-20 shadow-md'>
                     <ul>
-                      <li className='p-2 hover:bg-primry hover:text-white'><Link to="/blog/1">Blog 1</Link></li>
-                      <li className='p-2 hover:bg-primry hover:text-white'><Link to="/blog/2">Blog 2</Link></li>
+                      <li className='p-2 hover:bg-primry w-[80%] mx-auto mt-2 rounded-[7px] hover:text-white'><Link to="/blog/1">Blog 1</Link></li>
+                      <li className='p-2 hover:bg-primry w-[80%] mx-auto mt-2 rounded-[7px] hover:text-white mb-3'><Link to="/blog/2">Blog 2</Link></li>
                     </ul>
                   </div>
                 )}
@@ -139,13 +138,7 @@ const NavBer = () => {
           <div className='hidden lg:flex items-center gap-x-6'>
             <a href='tel:2195550114' className='flex items-center gap-x-2 text-sm hover:text-primry'>
               <FiPhoneCall /> (219) 555-0114
-            </a>
-
-            {/* Cart Icon Link */}
-            <Link to="/cart" className='flex items-center gap-x-2 bg-primry text-white px-4 py-2 rounded hover:opacity-90 transition-all'>
-              <FiShoppingCart className='text-lg' />
-              <span className='font-medium text-sm'>Cart</span>
-            </Link>
+            </a> 
           </div>
 
           {/* Desktop Categories Dropdown */}

@@ -24,6 +24,7 @@ import feedbackTwo from '../assets/daitels/feedbackTwo.webp';
 import feedbackThree from '../assets/daitels/feedbackThree.webp';
 import feedbackFour from '../assets/daitels/feedbackfour.webp';
 import axios from 'axios';
+import { Link } from 'react-router';
 
 const images = [
   dd1, dd2, dd4, dd5, dd6, dd8, dd9,
@@ -263,9 +264,9 @@ const Details = () => {
               </button>
             </div>
 
-            <button className='flex-1 min-w-[140px] h-11 flex items-center justify-center gap-x-2 bg-primry hover:bg-[#245F26] text-white font-pop font-medium text-sm rounded-[43px] transition-colors'>
+            <Link to="/cart" className='flex-1 min-w-[140px] h-11 flex items-center justify-center gap-x-2 bg-primry hover:bg-[#245F26] text-white font-pop font-medium text-sm rounded-[43px] transition-colors'>
               Add to Cart
-            </button>
+            </Link>
 
             <button className='w-11 h-11 flex items-center justify-center rounded-full text-[#333333] hover:text-[#ffff] transition-colors hover:bg-primry'>
               <FaHeart />
@@ -289,7 +290,7 @@ const Details = () => {
 
       {/* description start */}
       <div className='mt-8 sm:mt-2 '>
-        <div className='flex flex-wrap gap-x-5 sm:gap-x-8 gap-y-2 justify-center font-pop font-medium text-[14px] sm:text-[16px] text-[#808080] px-2 text-center'>
+        <div className='flex mt-10 flex-wrap gap-x-5 sm:gap-x-8 gap-y-2 justify-center font-pop font-medium text-[14px] sm:text-[16px] text-[#808080] px-2 text-center'>
           <h3
             onClick={() => setActiveTab('desc')}
             className={`cursor-pointer hover:text-[#000000] hover:border-b border-primry transition-all duration-300 ${activeTab === 'desc' ? 'text-[#000000] border-b border-primry' : ''}`}

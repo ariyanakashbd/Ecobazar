@@ -44,13 +44,13 @@ const SearchBar = () => {
 
             {/* Wishlist */}
             <div className='relative after:w-[2px] after:h-6 after:bg-[#CCCCCC] after:content-[""] after:absolute after:top-1 after:-right-3 sm:after:-right-4'>
-              <Heart />
+             <Link to="/wishlist"> <Heart /></Link>
             </div>
 
             {/* Cart */}
             <div className='flex items-center gap-2 sm:gap-3'>
               <div>
-                <HiOutlineShoppingBag className='text-3xl sm:text-hsize relative top-[-2px]' />
+                <Link to='/cart'><HiOutlineShoppingBag className='text-3xl sm:text-hsize relative top-[-2px]' /></Link>
               </div>
 
               <div className='hidden sm:block'>

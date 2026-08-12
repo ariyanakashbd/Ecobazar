@@ -27,16 +27,16 @@ const Subcribe = () => {
               </button>
             </div>
            <div className='flex gap-4 ml-4'>
-             <div className='flex w-10 h-10 rounded-full text-[#4D4D4D] text-[30px] justify-center items-center hover:bg-primry hover:text-white'>
+             <div className='flex w-10 h-10 rounded-full text-[#4D4D4D] text-[18px] justify-center items-center hover:bg-primry hover:text-white'>
                <Link to={"https://web.facebook.com/ariyan.akash.01303"}><FaFacebookF /></Link>
              </div>
-             <div className='flex w-10 h-10 rounded-full text-[#4D4D4D] text-[30px] justify-center items-center hover:bg-primry hover:text-white'>
+             <div className='flex w-10 h-10 rounded-full text-[#4D4D4D] text-[18px] justify-center items-center hover:bg-primry hover:text-white'>
                 <Link><FaTwitter/></Link>
              </div>
-             <div className='flex w-10 h-10 rounded-full text-[#4D4D4D] text-[30px] justify-center items-center hover:bg-primry hover:text-white'>
+             <div className='flex w-10 h-10 rounded-full text-[#4D4D4D] text-[18px] justify-center items-center hover:bg-primry hover:text-white'>
                <Link><FaPinterestP/></Link>
              </div>
-             <div className='flex w-10 h-10 rounded-full text-[#4D4D4D] text-[30px] justify-center items-center hover:bg-primry hover:text-white'>
+             <div className='flex w-10 h-10 rounded-full text-[#4D4D4D] text-[18px] justify-center items-center hover:bg-primry hover:text-white'>
                 <Link><FaInstagram/></Link>
              </div>
            </div>

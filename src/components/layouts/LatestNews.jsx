@@ -66,8 +66,6 @@ const LatestNews = () => {
                 <div className='bg-[#FFFFFF] w-[58px] h-[58px] rounded-[5px] text-center absolute top-59.5 left-6'>
                     <h3 className='font-pop text-[20px] font-bold text-[#1A1A1A]'>25</h3>
                     <h4 className='font-pop font-medium text-sm text-[#808080]'>SEP</h4>
-
-                    <div>kjcvsdhk</div>
                 </div>
                </div>
             </div>

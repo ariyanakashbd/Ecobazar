@@ -27,10 +27,10 @@ const tags = ["Healthy", "Low fat", "Vegetarian", "Kid foods", "Vitamins", "Brea
 const perPage = 9; 
 
 const Shop = () => {
-  const [activeCategory, setActiveCategory] = useState("cat2");
+  const [activeCategory, setActiveCategory] = useState(null);
   const [price, setPrice] = useState([50, 1500]);
-  const [activeRating, setActiveRating] = useState(4);
-  const [activeTags, setActiveTags] = useState(["Low fat", "Meat"]);
+  const [activeRating, setActiveRating] = useState(null);
+  const [activeTags, setActiveTags] = useState([]);
   const [shop, setshop] = useState([]);
   const [page, setPage] = useState(1); 
 
@@ -172,12 +172,7 @@ const Shop = () => {
               </div>
             ))}
           </div>
-        </div>
-        {/* product end */}
-      </div>
-
-      {/* pagination */}
-      <div className='flex justify-center mt-10 font-pop '>
+          <div className='flex justify-center mt-10 font-pop '>
         <ul className='flex gap-3 items-center text-[#666666]'>
           <li onClick={() => page > 1 && setPage(page - 1)} className='cursor-pointer text-[16px] '>
             <FaAngleLeft className='text-[20px]  text-[#1A1A1A]' />
@@ -200,6 +195,12 @@ const Shop = () => {
           </li>
         </ul>
       </div>
+        </div>
+        {/* product end */}
+      </div>
+
+      {/* pagination */}
+      
     </Container>
   )
 }
