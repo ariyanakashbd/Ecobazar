@@ -68,9 +68,6 @@ const LatestNews = () => {
                     <h4 className='font-pop font-medium text-sm text-[#808080]'>SEP</h4>
                 </div>
                </div>
-
-             
-              
             </div>
         </div>
     </Container>
