@@ -1,13 +1,11 @@
-﻿import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import Container from "../components/layouts/Container";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { register } from 'swiper/element/bundle';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
-import { InnerImageZoom } from 'react-inner-image-zoom';
-import 'react-inner-image-zoom/lib/styles.min.css';
+
 import dd1 from '../assets/daitels/dd1.jpg';
 import dd2 from '../assets/daitels/dd2.jpg';
 import dd4 from '../assets/daitels/dd4.jpg';
@@ -16,7 +14,7 @@ import dd6 from '../assets/daitels/dd6.webp';
 import dd8 from '../assets/daitels/dd8.png';
 import dd9 from '../assets/daitels/dd9.jpg';
 import sing from '../assets/daitels/sing.webp';
-import { FaStar, FaFacebookF, FaTwitter, FaPinterestP, FaInstagram, FaHeart, FaMinus, FaPlus, FaEye } from 'react-icons/fa';
+import { FaStar, FaFacebookF, FaTwitter, FaPinterestP, FaInstagram, FaHeart, FaMinus, FaPlus, FaEye, FaSearchPlus } from 'react-icons/fa';
 import { RiShoppingBagLine } from "react-icons/ri";
 import key from '../assets/daitels/key.webp';
 import pata from '../assets/daitels/pata.webp';
@@ -31,9 +29,52 @@ const images = [
   dd1, dd2, dd4, dd5, dd6, dd8, dd9,
 ];
 
+const ZoomableImage = ({ src, alt = '', className = '' }) => {
+  const containerRef = useRef(null);
+  const [isZooming, setIsZooming] = useState(false);
+  const [bgPos, setBgPos] = useState('50% 50%');
+
+  const handleMouseMove = (e) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setBgPos(`${x}% ${y}%`);
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      className={`relative overflow-hidden ${className}`}
+      onMouseEnter={() => setIsZooming(true)}
+      onMouseLeave={() => setIsZooming(false)}
+      onMouseMove={handleMouseMove}
+    >
+      <img
+        src={src}
+        alt={alt}
+        className={`w-full h-full object-cover transition-opacity duration-150 ${isZooming ? 'opacity-0' : 'opacity-100'}`}
+        draggable={false}
+      />
+      <div
+        aria-hidden="true"
+        className={`absolute inset-0 pointer-events-none transition-opacity duration-150 ${isZooming ? 'opacity-100' : 'opacity-0'}`}
+        style={{
+          backgroundImage: `url(${src})`,
+          backgroundSize: '200%',
+          backgroundPosition: bgPos,
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+    </div>
+  );
+};
+
+register();
+
 const Details = () => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [mainSwiper, setMainSwiper] = useState(null);
+  const thumbsSwiperRef = useRef(null);
+  const mainSwiperRef = useRef(null);
   const [count, setCount] = useState(1);
   const [activeTab, setActiveTab] = useState('desc');
   const [shop, setshop] = useState([]);
@@ -48,42 +89,73 @@ const Details = () => {
 
   useEffect(() => {
     async function allData() {
-      let proData = await axios.get('https://dummyjson.com/products');
-      setshop(proData.data.products.slice(0, 4));
+      try {
+        let proData = await axios.get('https://dummyjson.com/products');
+        setshop(proData.data.products.slice(0, 4));
+      } catch (error) {
+        console.error('Failed to load related products:', error);
+      }
     }
     allData();
   }, []);
+
+  useEffect(() => {
+    const mainEl = mainSwiperRef.current;
+    const thumbsEl = thumbsSwiperRef.current;
+    if (!mainEl || !thumbsEl) return;
+
+    const initMain = () => {
+      Object.assign(mainEl, {
+        spaceBetween: 10,
+        thumbs: { swiper: thumbsEl.swiper },
+      });
+      mainEl.initialize();
+    };
+
+    Object.assign(thumbsEl, {
+      direction: 'vertical',
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+      // navigation অবজেক্ট তুলে দেওয়া হয়েছে যাতে ইমেজের ভেতর অতিরিক্ত আইকন না আসে
+    });
+    thumbsEl.initialize();
+
+    initMain();
+  }, []);
+
+  const handleThumbClick = (index) => {
+    mainSwiperRef.current?.swiper?.slideTo(index);
+  };
 
   return (
     <Container>
       <div className="flex flex-col lg:flex-row gap-6 mt-6 sm:mt-10">
         <div className="w-full lg:w-1/2 flex gap-2 sm:gap-4 h-[280px] xs:h-[340px] sm:h-[400px] lg:h-[450px]">
           <div className="w-[50px] sm:w-[70px] flex flex-col justify-between items-center relative h-full shrink-0">
-            <button className="thumb-prev mb-4 sm:mb-10 cursor-pointer text-gray-500 z-20">
+            {/* উপরের কাস্টম বাটন */}
+            <button 
+              type="button"
+              onClick={() => thumbsSwiperRef.current?.swiper?.slidePrev()}
+              className="thumb-prev mb-4 sm:mb-10 cursor-pointer text-gray-500 z-20 hover:text-green-600 transition-colors"
+            >
               <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
               </svg>
             </button>
+
             <div className="w-full h-[220px] sm:h-[300px] lg:h-[380px] overflow-hidden">
-              <Swiper
-                onSwiper={setThumbsSwiper}
-                direction="vertical"
-                spaceBetween={10}
-                slidesPerView={4}
-                freeMode={true}
-                watchSlidesProgress={true}
-                navigation={{
-                  prevEl: '.thumb-prev',
-                  nextEl: '.thumb-next',
-                }}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="w-full h-full"
+              <swiper-container
+                ref={thumbsSwiperRef}
+                init="false"
+                class="w-full h-full"
               >
                 {images.map((img, index) => (
-                  <SwiperSlide
+                  <swiper-slide
                     key={index}
-                    onClick={() => mainSwiper && mainSwiper.slideTo(index)}
-                    className="cursor-pointer rounded-lg overflow-hidden border-2 border-transparent [&.swiper-slide-thumb-active]:border-green-600 transition-all select-none"
+                    onClick={() => handleThumbClick(index)}
+                    class="cursor-pointer rounded-lg overflow-hidden border-2 border-transparent [&.swiper-slide-thumb-active]:border-green-600 transition-all select-none"
                   >
                     <div>
                       <img
@@ -92,11 +164,17 @@ const Details = () => {
                         className="w-full h-[300px] object-cover"
                       />
                     </div>
-                  </SwiperSlide>
+                  </swiper-slide>
                 ))}
-              </Swiper>
+              </swiper-container>
             </div>
-            <button className="thumb-next cursor-pointer mt-4 sm:mt-10 text-gray-500 z-20">
+
+            {/* নিচের কাস্টম বাটন */}
+            <button 
+              type="button"
+              onClick={() => thumbsSwiperRef.current?.swiper?.slideNext()}
+              className="thumb-next cursor-pointer mt-4 sm:mt-10 text-gray-500 z-20 hover:text-green-600 transition-colors"
+            >
               <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -104,27 +182,21 @@ const Details = () => {
           </div>
 
           <div className="flex-1 min-w-0 h-full">
-            <Swiper
-              onSwiper={setMainSwiper}
-              spaceBetween={10}
-              thumbs={{
-                swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
-              }}
-              modules={[FreeMode, Navigation, Thumbs]}
-              className="w-full h-full bg-gray-50 rounded-lg overflow-hidden">
+            <swiper-container
+              ref={mainSwiperRef}
+              init="false"
+              class="w-full h-full bg-gray-50 rounded-lg overflow-hidden"
+            >
               {images.map((img, index) => (
-                <SwiperSlide key={index} className="flex items-center justify-center">
-                  <InnerImageZoom
+                <swiper-slide key={index} class="flex items-center justify-center">
+                  <ZoomableImage
                     src={img}
-                    zoomSrc={img}
-                    zoomType="hover"
-                    zoomScale={1.5}
-                    hideHint={true}
+                    alt={`Product image ${index + 1}`}
                     className="w-full h-full"
                   />
-                </SwiperSlide>
+                </swiper-slide>
               ))}
-            </Swiper>
+            </swiper-container>
           </div>
         </div>
 
@@ -241,7 +313,7 @@ const Details = () => {
         <div className='flex flex-col lg:flex-row mt-6 gap-x-8 lg:gap-x-[80px] xl:gap-x-[143px] gap-y-10'>
           <div className='w-full lg:w-1/2'>
             {activeTab === 'desc' && (
-              <p className='font-pop text-sm text-[#666666] leading-6'>
+              <div className='font-pop text-sm text-[#666666] leading-6'>
                 <span>
                   Sed commodo aliquam dui ac porta. Fusce ipsum felis, imperdiet at posuere ac, viverra at mauris. Maecenas tincidunt ligula a sem vestibulum pharetra. Maecenas auctor tortor lacus, nec laoreet nisi porttitor vel. Etiam tincidunt metus vel dui interdum sollicitudin. Mauris sem ante, vestibulum nec orci vitae, aliquam mollis lacus. Sed et condimentum arcu, id molestie tellus. Nulla facilisi. Nam scelerisque vitae justo a convallis. Morbi urna ipsum, placerat quis commodo quis, egestas elementum leo. Donec convallis mollis enim. Aliquam id mi quam. Phasellus nec fringilla elit.
                 </span> <br />
@@ -260,10 +332,10 @@ const Details = () => {
                       Cras et diam maximus, accumsan sapien et, sollicitudin velit. Nulla blandit eros non turpis lobortis iaculis at ut massa. 
                     </p>
                 </div>
-              </p>
+              </div>
             )}
             {activeTab === 'info' && (
-              <p className='font-pop text-sm leading-6 flex gap-x-8 sm:gap-x-12'>
+              <div className='font-pop text-sm leading-6 flex gap-x-8 sm:gap-x-12'>
                 <ul className='text-black'>
                   <li className='mb-3'>Weight:</li>
                   <li className='mb-3'>Color:</li>
@@ -280,14 +352,14 @@ const Details = () => {
                   <li className='mb-3'>Available (5,413)</li>
                   <li className='mb-3'>Vegetables, Healthy,<u className='text-[#1A1A1A]'> Chinese,</u> Cabbage, Green Cabbage</li>
                 </ul>
-              </p>
+              </div>
             )}
             {activeTab === 'feedback' && (
               <div className='font-pop'>
                 <div className='mb-10'>
                   <div className='flex flex-wrap justify-between gap-y-2'>
                     <div className='flex gap-x-3'>
-                      <img src={feedbackOne} alt="feedbackOne" className='w-10 h-10 sm:w-auto sm:h-auto rounded-full object-cover' />
+                      <img src={feedbackOne} alt="Kristin Watson" className='w-10 h-10 sm:w-auto sm:h-auto rounded-full object-cover' />
                       <div>
                         <p>Kristin Watson</p>
                         <p className='flex items-center text-[#FF8A00]'>
@@ -305,7 +377,7 @@ const Details = () => {
                 <div className='mb-10'>
                   <div className='flex flex-wrap justify-between gap-y-2'>
                     <div className='flex gap-x-3'>
-                      <img src={feedbackTwo} alt="feedbackOne" className='w-10 h-10 sm:w-auto sm:h-auto rounded-full object-cover' />
+                      <img src={feedbackTwo} alt="Jane Cooper" className='w-10 h-10 sm:w-auto sm:h-auto rounded-full object-cover' />
                       <div>
                         <p>Jane Cooper</p>
                         <p className='flex items-center text-[#FF8A00]'>
@@ -323,7 +395,7 @@ const Details = () => {
                 <div className='mb-10'>
                   <div className='flex flex-wrap justify-between gap-y-2'>
                     <div className='flex gap-x-3'>
-                      <img src={feedbackThree} alt="feedbackOne" className='w-10 h-10 sm:w-auto sm:h-auto rounded-full object-cover' />
+                      <img src={feedbackThree} alt="Jacob Jones" className='w-10 h-10 sm:w-auto sm:h-auto rounded-full object-cover' />
                       <div>
                         <p>Jacob Jones</p>
                         <p className='flex items-center text-[#FF8A00]'>
@@ -341,7 +413,7 @@ const Details = () => {
                 <div className='mb-10'>
                   <div className='flex flex-wrap justify-between gap-y-2'>
                     <div className='flex gap-x-3'>
-                      <img src={feedbackFour} alt="feedbackOne" className='w-10 h-10 sm:w-auto sm:h-auto rounded-full object-cover' />
+                      <img src={feedbackFour} alt="Ralph Edwards" className='w-10 h-10 sm:w-auto sm:h-auto rounded-full object-cover' />
                       <div>
                         <p>Ralph Edwards</p>
                         <p className='flex items-center text-[#FF8A00]'>
@@ -411,7 +483,6 @@ const Details = () => {
               key={item.id}
               className='group border border-[#E6E6E6] hover:border-primry rounded-lg p-3 sm:p-4 transition-all duration-300 relative bg-white hover:shadow-lg'
             >
-              {/* Product Image & Hover Icons */}
               <div className='relative overflow-hidden rounded-md mb-3 sm:mb-4 bg-[#F2F2F2]'>
                 <img
                   src={item.thumbnail}
@@ -419,7 +490,6 @@ const Details = () => {
                   className='w-full h-[140px] sm:h-[180px] lg:h-[230px] object-cover group-hover:scale-105 transition-all duration-300'
                 />
 
-                {/* Hover Eye & Heart Icons */}
                 <div className='absolute top-2 sm:top-3 right-2 sm:right-3 flex flex-col gap-y-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10'>
                   <button className='w-8 h-8 sm:w-9 sm:h-9 bg-white rounded-full flex items-center justify-center text-[#1A1A1A] hover:bg-primry hover:text-white transition-colors shadow-sm cursor-pointer'>
                     <FaHeart size={16} />
@@ -430,7 +500,6 @@ const Details = () => {
                 </div>
               </div>
 
-              {/* Product Info */}
               <h4 className='font-pop font-medium text-sm sm:text-base text-[#4D4D4D] group-hover:text-primry transition-colors truncate mb-2 sm:mb-2.5'>
                 {item.title}
               </h4>
@@ -455,8 +524,6 @@ const Details = () => {
           ))}
         </div>
       </div>
-      {/* Related Products End */}
-
     </Container>
   );
 };

@@ -25,7 +25,7 @@ function App() {
           <Route path="/Reset" element={<Reset/>}/>
           <Route path="/cat" element={<Category/>}/>
           <Route path="/shop" element={<Shop/>}/>
-          <Route path="/details" element={<Details/>}/>
+          <Route path="/Details" element={<Details/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/chakout" element={<Chakout/>}/>
         </Route>
