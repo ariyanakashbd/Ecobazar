@@ -1,7 +1,7 @@
 import Container from './Container'
-import latestone from '../../assets/latestOne.webp';
-import latesttwo from '../../assets/latestTwo.webp';
-import latestthree from '../../assets/latestThree.webp';
+import latestone from '../../assets/latestone.webp';
+import latesttwo from '../../assets/latesttwo.webp';
+import latestthree from '../../assets/latestthree.webp';
 import { FaTag } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { BiMessageAlt } from "react-icons/bi";
