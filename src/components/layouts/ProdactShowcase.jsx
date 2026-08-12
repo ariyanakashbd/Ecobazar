@@ -1,4 +1,4 @@
-﻿import Container from './Container'
+import Container from './Container'
 import popular1 from '../../assets/popular1.webp'
 import { Link } from 'react-router'
 import { IoIosArrowRoundForward } from "react-icons/io"
@@ -188,7 +188,7 @@ const ProdactShowcase = ({ title, dataPass }) => {
               <div>
                 {item.rating && (
                   <div className='flex pl-3 mb-3 relative'>
-                    {rating(item.rating).map((star, starIndex) =>
+                    {rating(item.rating).map((star) =>
                       star === "color" ? (
                         <FaStar className='text-yellow-300' />
                       ) : star == "half" ? (

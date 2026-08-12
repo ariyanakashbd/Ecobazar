@@ -1,9 +1,8 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Container from '../components/layouts/Container'
 import Accodion, { AccordionItem, PriceRange } from '../components/Accodion';
 import bannerShop from '../assets/aaaa.webp';
 import prodact from '../assets/Product.webp';
-import prodactOne from '../assets/ProductOne.webp';
 import prodactTwo from '../assets/ProductTwo.webp';
 import axios from 'axios';
 import { RiShoppingBagLine } from "react-icons/ri";

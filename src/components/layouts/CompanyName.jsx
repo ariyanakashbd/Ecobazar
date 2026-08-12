@@ -108,7 +108,7 @@ const CompanyName = () => {
     ref={openRefFour}
     onClick={() => setOpenFour(false)} className="w-full h-screen fixed top-0 left-0 bg-[#0000007e] z-50 flex justify-center items-center">
     <div
-      onClick={(e)=>setOpenFour(true)}
+      onClick={()=>setOpenFour(true)}
       className="flex flex-col items-center gap-4">
       <img src={instagram4}alt="instagram4" className="w-150 h-150"/>
       <button
@@ -123,7 +123,7 @@ const CompanyName = () => {
     ref={openRefFive}
     onClick={() => setOpenFive(false)} className="w-full h-screen fixed top-0 left-0 bg-[#0000007e] z-50 flex justify-center items-center">
     <div
-      onClick={(e)=>setOpenFive(true)}
+      onClick={()=>setOpenFive(true)}
       className="flex flex-col items-center gap-4">
       <img src={instagram5}alt="instagram5" className="w-150 h-150"/>
       <button
@@ -138,7 +138,7 @@ const CompanyName = () => {
     ref={openRefSix}
     onClick={() => setOpenSix(false)} className="w-full h-screen fixed top-0 left-0 bg-[#0000007e] z-50 flex justify-center items-center">
     <div
-      onClick={(e)=>setOpenSix(true)}
+      onClick={()=>setOpenSix(true)}
       className="flex flex-col items-center gap-4">
       <img src={instagram6}alt="instagram6" className="w-150 h-150"/>
       <button

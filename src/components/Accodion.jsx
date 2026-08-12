@@ -1,4 +1,4 @@
-﻿import Container from './layouts/Container';
+import Container from './layouts/Container';
 import { FaAngleDown, FaStar, FaCheck } from "react-icons/fa";
 import { useState } from 'react';
 
@@ -74,10 +74,16 @@ export const AccordionItem = ({
   }
 
   return (
-    <div className='flex items-center mb-2.5'>
-      <input className='hidden' id={id} type="checkbox" checked={selected} onChange={onChange} />
-      <label htmlFor={id} className='font-pop text-sm text-[#1A1A1A]'>
-        {name} <span className='text-[#808080]'> ({count})</span>
+    <div className='flex items-center mb-2.5 gap-x-2.5'>
+      <input className='peer hidden' id={id} type="checkbox" checked={selected} onChange={onChange} />
+      <label
+        htmlFor={id}
+        className={`w-4 h-4 rounded flex items-center justify-center cursor-pointer border ${selected ? "bg-primry border-primry" : "border-[#CCCCCC]"}`}
+      >
+        {selected && <FaCheck className='text-white text-[9px]' />}
+      </label>
+      <label htmlFor={id} className='font-pop text-sm text-[#1A1A1A] cursor-pointer'>
+        {name} {count && <span className='text-[#808080]'>({count})</span>}
       </label>
     </div>
   )
@@ -111,7 +117,7 @@ export const PriceRange = ({ min = 50, max = 1500, value, onChange }) => {
 }
 
 const Accodion = ({ title = "All Categories", children }) => {
-  let [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
   return (
     <Container>

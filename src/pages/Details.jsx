@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Container from "../components/layouts/Container";
 import { register } from 'swiper/element/bundle';
 import 'swiper/css';
@@ -14,7 +14,7 @@ import dd6 from '../assets/daitels/dd6.webp';
 import dd8 from '../assets/daitels/dd8.png';
 import dd9 from '../assets/daitels/dd9.jpg';
 import sing from '../assets/daitels/sing.webp';
-import { FaStar, FaFacebookF, FaTwitter, FaPinterestP, FaInstagram, FaHeart, FaMinus, FaPlus, FaEye, FaSearchPlus } from 'react-icons/fa';
+import { FaStar, FaFacebookF, FaTwitter, FaPinterestP, FaInstagram, FaHeart, FaMinus, FaPlus, FaEye } from 'react-icons/fa';
 import { RiShoppingBagLine } from "react-icons/ri";
 import key from '../assets/daitels/key.webp';
 import pata from '../assets/daitels/pata.webp';

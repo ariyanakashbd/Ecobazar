@@ -1,8 +1,7 @@
-﻿import Container from './Container';
+import Container from './Container';
 import { LiaShippingFastSolid } from "react-icons/lia";
 import { VscPackage } from "react-icons/vsc";
 import { IoBagCheckOutline } from "react-icons/io5";
-import { BiSupport } from "react-icons/bi";
 import support from '../../assets/support.webp'
 
 const Costomar = () => {
