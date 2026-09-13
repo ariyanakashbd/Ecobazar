@@ -173,9 +173,9 @@ const ProdactShowcase = ({ title, dataPass }) => {
               const isRightSide = (index + 1) % 5 === 0 || (index + 1) % 5 === 4;
 
               return (
-                <div key={index} className='relative h-[330px] sm:h-[360px] group z-10 hover:z-50 overflow-visible'>
+                <div key={index} className='relative h-[350px] sm:h-[380px] group z-10 hover:z-50 overflow-visible'>
 
-                  <div className={`absolute top-1/2 -translate-y-1/2 w-full bg-white border border-[#E6E6E6] rounded-[5px] p-3 sm:p-4 transition-all duration-300 ease-in-out group-hover:z-50 group-hover:border group-hover:border-primry group-hover:shadow-2xl origin-center ${
+                  <div className={`absolute top-1/2 -translate-y-1/2 w-full bg-white border border-[#E6E6E6] rounded-[5px] p-3 sm:p-4 transition-all duration-300 ease-in-out group-hover:z-50 group-hover:border group-hover:border-primry group-hover:shadow-2xl group-hover:scale-[1.05] origin-center ${
                     isRightSide ? 'right-0' : 'left-0'
                   }`}>
 
@@ -256,9 +256,9 @@ const ProdactShowcase = ({ title, dataPass }) => {
         </div>
 
       ) : (
-        <div className={`items-center w-full text-center flex flex-wrap justify-center gap-3 sm:gap-y-4 ${title == "Popular Categories" && "lg:gap-5 text-center "}`}>
+        <div className={`items-center w-full text-center flex gap-3 sm:gap-y-4 ${title === "Featured Products" ? "flex-nowrap overflow-x-auto justify-start pb-2" : "flex-wrap justify-center"} ${title == "Popular Categories" && "lg:gap-5 text-center "}`}>
           {dataPass?.map((item, idx) => (
-            <div key={idx} className={`cursor-pointer relative group w-full xs:w-[48%] md:w-[48%] ${title == 'Popular Categories' ? 'lg:w-[14.66%]' : 'lg:w-[20%]'} ${title == 'Featured Products' ? 'lg:w-[20%]' : ''} border border-[#E6E6E6] rounded-[5px] hover:border-primry hover:shadow-2xl transition-all duration-300 bg-white`}>
+            <div key={idx} className={`cursor-pointer relative group ${title === "Featured Products" ? "shrink-0 w-[45%] xs:w-[38%] sm:w-[28%] md:w-[22%] lg:w-[19%]" : `w-full xs:w-[48%] md:w-[48%] ${title == 'Popular Categories' ? 'lg:w-[14.66%]' : 'lg:w-[20%]'}`} border border-[#E6E6E6] rounded-[5px] hover:border-primry hover:shadow-2xl transition-all duration-300 bg-white`}>
               <img src={item.thumbnail || popular1} alt="popular1" className='mx-auto' />
               <h3 className={`text-[#1A1A1A] pl-3 font-pop font-medium text-[16px] group-hover:text-[#2C742F] transition-all duration-300 ${title == "Popular Categories" && "my-4"}`}>
                 {item.name
